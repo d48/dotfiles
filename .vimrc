@@ -12,6 +12,7 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}		
 Bundle 'vim-scripts/tComment'
 Bundle 'scrooloose/nerdtree'
+Bundle 'Townk/vim-autoclose'
 
 " vim-scripts repos
 Bundle 'L9'
@@ -41,11 +42,14 @@ set number
 set mouse=a		" Use mouse in normal and visual modes
 set mousefocus		" Follow mouse focus
 set nobackup		" Do not keep a backup file
+set noswapfile		" No swap files
 set history=1000	" Keep 1000 lines of command line history
+set hlsearch		" highlight keywords in search
 
 
 autocmd Filetype javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 noexpandtab 
 autocmd Filetype html setlocal tabstop=5 shiftwidth=5 softtabstop=5 noexpandtab 
+autocmd Filetype php setlocal tabstop=5 shiftwidth=5 softtabstop=5 noexpandtab 
 
 syntax on
 
