@@ -3,6 +3,7 @@ filetype off
 
 set rtp+=~/.vim/vundle.git/
 call vundle#rc()
+call pathogen#infect()
 
 filetype plugin indent on
 
@@ -13,6 +14,7 @@ Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'vim-scripts/tComment'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Townk/vim-autoclose'
+Bundle 'kchmck/vim-coffee-script'
 
 " vim-scripts repos
 Bundle 'L9'
@@ -47,9 +49,10 @@ set history=1000	" Keep 1000 lines of command line history
 set hlsearch		" highlight keywords in search
 
 
-autocmd Filetype javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 noexpandtab 
+autocmd Filetype coffee setlocal tabstop=2 shiftwidth=2 softtabstop=2 noexpandtab 
 autocmd Filetype html setlocal tabstop=5 shiftwidth=5 softtabstop=5 noexpandtab 
 autocmd Filetype php setlocal tabstop=5 shiftwidth=5 softtabstop=5 noexpandtab 
+autocmd BufRead,BufNewFile *.coffee setf=coffee
 
 syntax on
 
