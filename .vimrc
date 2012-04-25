@@ -15,6 +15,8 @@ Bundle 'vim-scripts/tComment'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Townk/vim-autoclose'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'msanders/snipmate.vim'
+Bundle 'tpope/vim-surround'
 
 " vim-scripts repos
 Bundle 'L9'
@@ -33,14 +35,15 @@ Bundle 'git://git.wincent.com/command-t.git'
 if &t_Co > 2 || has("gui_running")
 	syntax on
 	" colorscheme hemisu
-	colorscheme lucius 
+	" colorscheme lucius 
+	colorscheme Tomorrow-Night
 	set background=dark
 endif
 
 
-set tabstop=5 softtabstop=5 shiftwidth=5 noexpandtab
 set number
 
+set clipboard=unnamed	" system clipboard
 set mouse=a		" Use mouse in normal and visual modes
 set mousefocus		" Follow mouse focus
 set nobackup		" Do not keep a backup file
@@ -49,9 +52,11 @@ set history=1000	" Keep 1000 lines of command line history
 set hlsearch		" highlight keywords in search
 
 
-autocmd Filetype coffee setlocal tabstop=2 shiftwidth=2 softtabstop=2 noexpandtab 
-autocmd Filetype html setlocal tabstop=5 shiftwidth=5 softtabstop=5 noexpandtab 
-autocmd Filetype php setlocal tabstop=5 shiftwidth=5 softtabstop=5 noexpandtab 
+autocmd Filetype javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
+autocmd Filetype coffee setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
+autocmd Filetype html setlocal tabstop=5 shiftwidth=5 softtabstop=5 expandtab 
+autocmd Filetype php setlocal tabstop=5 shiftwidth=5 softtabstop=5 expandtab 
+autocmd Filetype markdown setlocal tabstop=5 shiftwidth=5 softtabstop=5 expandtab 
 autocmd BufRead,BufNewFile *.coffee setf=coffee
 
 syntax on
