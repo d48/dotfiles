@@ -38,7 +38,7 @@ alias home="cd ~"
 alias ls="ls -a"
 alias lsl="ls -lha"
 alias lst="ls -lht"
-alias lsr="ls -lhr"
+alias lsr="ls -lhtr"
 alias vi="mvim -v"
 
 # File commands
