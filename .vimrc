@@ -17,11 +17,13 @@ Bundle 'Townk/vim-autoclose'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'msanders/snipmate.vim'
 Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-rails'
+Bundle 'endel/vim-github-colorscheme'
+Bundle 'vim-scripts/AutoComplPop'
 
 " vim-scripts repos
 Bundle 'L9'
 Bundle 'FuzzyFinder'
-Bundle 'rails.vim'
 Bundle 'Lucius'
 Bundle 'noahfrederick/Hemisu'
 
@@ -37,6 +39,7 @@ if &t_Co > 2 || has("gui_running")
 	" colorscheme hemisu
 	" colorscheme lucius 
 	colorscheme Tomorrow-Night
+	" set background=light
 	set background=dark
 endif
 
@@ -51,13 +54,24 @@ set noswapfile		" No swap files
 set history=1000	" Keep 1000 lines of command line history
 set hlsearch		" highlight keywords in search
 
+" Ignore case when searching
+set ignorecase
+
+" Show matching braces
+set showmatch
 
 autocmd Filetype javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
 autocmd Filetype coffee setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
+autocmd Filetype css setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
 autocmd Filetype html setlocal tabstop=5 shiftwidth=5 softtabstop=5 expandtab 
+autocmd Filetype haml setlocal tabstop=5 shiftwidth=5 softtabstop=5 expandtab 
 autocmd Filetype php setlocal tabstop=5 shiftwidth=5 softtabstop=5 expandtab 
 autocmd Filetype markdown setlocal tabstop=5 shiftwidth=5 softtabstop=5 expandtab 
 autocmd BufRead,BufNewFile *.coffee setf=coffee
+autocmd BufRead,BufNewFile *.erb setf=ruby
+
+" Omni complete
+" set completeopt=longest,menuone
 
 syntax on
 
@@ -67,4 +81,3 @@ set si
 " Key mappings
 nmap <F7> :tabprevious<CR>
 nmap <F8> :tabnext<CR>
-
