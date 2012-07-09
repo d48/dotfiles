@@ -1,0 +1,25 @@
+[github]
+	user = design48
+[user]
+	name = Ryan Regalado
+	email = ryan@design48.net
+[color]
+	ui = true
+[alias]
+	b = branch
+	s = status
+	c = commit
+	ca = commit -a -m
+	curtag = !sh -c 'git fetch --tags && git co `git tag -l *12[a-z] | tail -n1` && git su' -
+	co = checkout
+	l = log
+	lol = log --pretty=oneline --abbrev-commit --decorate
+	p = pull --prune
+	si = submodule init
+	su = submodule update --recursive
+	sui = submodule update --init --recursive
+
+	# git current :: returns current branchname 
+	current = !git branch 2> /dev/null | grep '\\*' | sed -e 's/\\* \\(.*\\)/\\1/'
+[core]
+	editor = vim
