@@ -53,6 +53,7 @@ set nobackup		" Do not keep a backup file
 set noswapfile		" No swap files
 set history=1000	" Keep 1000 lines of command line history
 set hlsearch		" highlight keywords in search
+set cc=80		" highlight column 80
 
 " Ignore case when searching
 set ignorecase
@@ -63,12 +64,14 @@ set showmatch
 autocmd Filetype javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
 autocmd Filetype coffee setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
 autocmd Filetype css setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
-autocmd Filetype html setlocal tabstop=5 shiftwidth=5 softtabstop=5 expandtab 
+autocmd Filetype html setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
 autocmd Filetype haml setlocal tabstop=5 shiftwidth=5 softtabstop=5 expandtab 
 autocmd Filetype php setlocal tabstop=5 shiftwidth=5 softtabstop=5 expandtab 
 autocmd Filetype markdown setlocal tabstop=5 shiftwidth=5 softtabstop=5 expandtab 
 autocmd BufRead,BufNewFile *.coffee setf=coffee
+autocmd BufRead,BufNewFile *.jade setf=html
 autocmd BufRead,BufNewFile *.erb setf=ruby
+autocmd BufRead,BufNewFile *.styl setf=css
 
 " Omni complete
 " set completeopt=longest,menuone
