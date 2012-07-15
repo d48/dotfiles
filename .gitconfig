@@ -23,3 +23,5 @@
 	current = !git branch 2> /dev/null | grep '\\*' | sed -e 's/\\* \\(.*\\)/\\1/'
 [core]
 	editor = vim
+[push]
+	default = current
