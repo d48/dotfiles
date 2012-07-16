@@ -54,6 +54,7 @@ set noswapfile		" No swap files
 set history=1000	" Keep 1000 lines of command line history
 set hlsearch		" highlight keywords in search
 set cc=80		" highlight column 80
+set paste		" copy and paste, keep formatting from source
 
 " Ignore case when searching
 set ignorecase
