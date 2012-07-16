@@ -29,6 +29,5 @@
 	pulldown = !"git pull origin `git current`"
 [core]
 	editor = vim
-
 [push]
 	default = current
