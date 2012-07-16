@@ -19,7 +19,16 @@
 	su = submodule update --recursive
 	sui = submodule update --init --recursive
 
+	# deletes all local branches that have already been merged with master
+	close = !sh -c 'git branch --merged master | grep -v 'master$' | xargs git branch -d' -
+
 	# git current :: returns current branchname 
 	current = !git branch 2> /dev/null | grep '\\*' | sed -e 's/\\* \\(.*\\)/\\1/'
+
+	# git pull on current branch you're on
+	pulldown = !"git pull origin `git current`"
 [core]
 	editor = vim
+
+[push]
+	default = current
