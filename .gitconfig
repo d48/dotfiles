@@ -14,10 +14,14 @@
 	co = checkout
 	l = log
 	lol = log --pretty=oneline --abbrev-commit --decorate
+	lolg = !sh -c 'git lol --graph' 
 	p = pull --prune
 	si = submodule init
 	su = submodule update --recursive
 	sui = submodule update --init --recursive
+	st = stash
+	stl = stash list
+	sts = stash save 
 
 	# deletes all local branches that have already been merged with master
 	close = !sh -c 'git branch --merged master | grep -v 'master$' | xargs git branch -d' -
@@ -26,8 +30,9 @@
 	current = !git branch 2> /dev/null | grep '\\*' | sed -e 's/\\* \\(.*\\)/\\1/'
 
 	# git pull on current branch you're on
-	pulldown = !"git pull origin `git current`"
+	pd = !"git pull origin `git current`"
 [core]
 	editor = vim
+
 [push]
 	default = current
