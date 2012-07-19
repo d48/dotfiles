@@ -14,7 +14,7 @@
 	co = checkout
 	l = log
 	lol = log --pretty=oneline --abbrev-commit --decorate
-	lolg = !sh -c 'git lol --graph' 
+	lolg = !"git log --format='%Cgreen%h %Creset%C(cyan)%an%Creset%C(magenta)%d%Creset - %s' --graph"
 	p = pull --prune
 	si = submodule init
 	su = submodule update --recursive
