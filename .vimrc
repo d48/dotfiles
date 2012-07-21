@@ -69,10 +69,10 @@ autocmd Filetype html setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 autocmd Filetype haml setlocal tabstop=5 shiftwidth=5 softtabstop=5 expandtab 
 autocmd Filetype php setlocal tabstop=5 shiftwidth=5 softtabstop=5 expandtab 
 autocmd Filetype markdown setlocal tabstop=5 shiftwidth=5 softtabstop=5 expandtab 
-autocmd BufRead,BufNewFile *.coffee setf=coffee
-autocmd BufRead,BufNewFile *.jade setf=html
-autocmd BufRead,BufNewFile *.erb setf=ruby
-autocmd BufRead,BufNewFile *.styl setf=css
+autocmd BufRead,BufNewFile *.coffee set filetype=coffee
+autocmd BufRead,BufNewFile *.jade set filetype=css
+autocmd BufRead,BufNewFile *.erb set filetype=ruby
+autocmd BufRead,BufNewFile *.styl set filetype=css
 
 " Omni complete
 " set completeopt=longest,menuone
