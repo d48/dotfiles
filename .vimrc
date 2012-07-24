@@ -85,3 +85,4 @@ set si
 " Key mappings
 nmap <F7> :tabprevious<CR>
 nmap <F8> :tabnext<CR>
+nmap <silent> <C-N> :NERDTreeToggle<CR>
