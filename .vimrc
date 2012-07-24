@@ -20,6 +20,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-rails'
 Bundle 'endel/vim-github-colorscheme'
 Bundle 'vim-scripts/AutoComplPop'
+Bundle 'vim-scripts/PDV--phpDocumentor-for-Vim'
 
 " vim-scripts repos
 Bundle 'L9'
@@ -54,7 +55,7 @@ set noswapfile		" No swap files
 set history=1000	" Keep 1000 lines of command line history
 set hlsearch		" highlight keywords in search
 set cc=80		" highlight column 80
-set paste		" copy and paste, keep formatting from source
+" set paste		" copy and paste, keep formatting from source
 
 " Ignore case when searching
 set ignorecase
@@ -86,3 +87,11 @@ set si
 nmap <F7> :tabprevious<CR>
 nmap <F8> :tabnext<CR>
 nmap <silent> <C-N> :NERDTreeToggle<CR>    " Ctrl+N to toggle
+
+" PHP doc block
+inoremap <C-K> <ESC>:call PhpDocSingle()<CR>i 
+nnoremap <C-K> :call PhpDocSingle()<CR> 
+vnoremap <C-K> :call PhpDocRange()<CR> 
+
+" aligning comments
+autocmd BufNewFile,BufRead * setlocal formatoptions+=or
