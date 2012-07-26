@@ -12,6 +12,8 @@
 	ca = commit -a -m
 	curtag = !sh -c 'git fetch --tags && git co `git tag -l *12[a-z] | tail -n1` && git su' -
 	co = checkout
+	dh = diff HEAD
+	dm = diff master 
 	l = log
 	lol = log --pretty=oneline --abbrev-commit --decorate
 	lolg = !"git log --format='%Cgreen%h %Creset%C(cyan)%an%Creset%C(magenta)%d%Creset - %s' --graph"
