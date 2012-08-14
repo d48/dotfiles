@@ -40,9 +40,10 @@ set t_Co=256
 if &t_Co > 2 || has("gui_running")
 	syntax on
 	" colorscheme hemisu
-	colorscheme lucius 
+	" colorscheme lucius 
 	" colorscheme Clouds 
-	" set background=dark
+	colorscheme Tomorrow-Night
+	set background=dark
 endif
 
 set tabstop=5 softtabstop=5 shiftwidth=5 noexpandtab
@@ -101,6 +102,12 @@ nmap <C-t> :CommandT<CR>
 " Align
 vmap <C-a> \t=<CR>
 
+" clear search highlight
+nmap <silent> ,/ :noh<CR>
+
+" copy and paste current line
+nmap <C-p> <Esc>yyp
+nmap <C-o> <Esc>yyP
 
 " aligning comments                                                             
 autocmd BufNewFile,BufRead * setlocal formatoptions+=or " show pwd in vim
