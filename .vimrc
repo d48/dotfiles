@@ -40,10 +40,9 @@ set t_Co=256
 if &t_Co > 2 || has("gui_running")
 	syntax on
 	" colorscheme hemisu
-	" colorscheme lucius 
+	colorscheme lucius 
 	" colorscheme Clouds 
-	colorscheme Tomorrow-Night
-	set background=dark
+	" set background=dark
 endif
 
 set tabstop=5 softtabstop=5 shiftwidth=5 noexpandtab
@@ -69,7 +68,7 @@ autocmd Filetype css setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 autocmd Filetype coffee setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
 autocmd Filetype json setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
 autocmd Filetype html setlocal tabstop=5 shiftwidth=5 softtabstop=5 expandtab 
-autocmd Filetype phtml setlocal tabstop=5 shiftwidth=5 softtabstop=5 expandtab 
+autocmd Filetype phtml setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
 autocmd Filetype php setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
 
 " omni completion
@@ -89,7 +88,7 @@ map <C-h> :tabprevious<CR>
 map <C-l> :tabnext<CR>
 nnoremap <D-up> :resize -5<CR>
 nnoremap <D-down> :resize +5<CR>
-nmap <silent> <C-n> :NERDTreeToggle<CR>    " Ctrl+N to toggle                   
+nmap <F1> :NERDTreeToggle<CR>    " Ctrl+N to toggle                   
                                                                                 
 " PHP doc block                                                                 
 inoremap <C-K> <ESC>:call PhpDocSingle()<CR>i                                   
@@ -103,11 +102,10 @@ nmap <C-t> :CommandT<CR>
 vmap <C-a> \t=<CR>
 
 " clear search highlight
-nmap <silent> ,/ :noh<CR>
+nmap <silent> ,, :noh<CR>
 
 " copy and paste current line
 nmap <C-p> <Esc>yyp
-nmap <C-o> <Esc>yyP
 
 " aligning comments                                                             
 autocmd BufNewFile,BufRead * setlocal formatoptions+=or " show pwd in vim
@@ -121,3 +119,6 @@ if &term == "screen" || &term == "xterm"
 endif
 
 autocmd BufEnter * let &titlestring = "vim " . expand("%:t") . " " . expand("%:h")
+
+" auto change current dir to file that is open
+" autocmd BufEnter * silent! lcd %:p:h
