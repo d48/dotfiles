@@ -63,11 +63,12 @@ set cc=80				" highlight column 80 for visual
 au BufRead,BufNewFile *.json set filetype=javascript
 au BufRead,BufNewFile *.less set filetype=css
 au BufRead,BufNewFile *.styl set filetype=css
+au BufRead,BufNewFile *.phtml set filetype=html
 autocmd Filetype javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
 autocmd Filetype css setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
 autocmd Filetype coffee setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
 autocmd Filetype json setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
-autocmd Filetype html setlocal tabstop=5 shiftwidth=5 softtabstop=5 expandtab 
+autocmd Filetype html setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
 autocmd Filetype phtml setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
 autocmd Filetype php setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
 
@@ -97,6 +98,7 @@ vnoremap <C-K> :call PhpDocRange()<CR>
 
 " Command-T
 nmap <C-t> :CommandT<CR>
+nmap <C-f> :CommandTFlush<CR>
 
 " Align
 vmap <C-a> \t=<CR>
