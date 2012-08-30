@@ -23,6 +23,10 @@ Bundle 'vim-scripts/AutoComplPop'
 Bundle 'vim-scripts/PDV--phpDocumentor-for-Vim'
 Bundle 'tsaleh/vim-align'
 
+" syntax highlighting for markdown files
+Bundle 'hallison/vim-markdown'
+
+
 " vim-scripts repos
 Bundle 'L9'
 Bundle 'FuzzyFinder'
@@ -63,11 +67,13 @@ set cc=80				" highlight column 80 for visual
 au BufRead,BufNewFile *.json set filetype=javascript
 au BufRead,BufNewFile *.less set filetype=css
 au BufRead,BufNewFile *.styl set filetype=css
+au BufRead,BufNewFile *.phtml set filetype=html
+au BufRead,BufNewFile *.php.dist set filetype=php
 autocmd Filetype javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
 autocmd Filetype css setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
 autocmd Filetype coffee setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
 autocmd Filetype json setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
-autocmd Filetype html setlocal tabstop=5 shiftwidth=5 softtabstop=5 expandtab 
+autocmd Filetype html setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
 autocmd Filetype phtml setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
 autocmd Filetype php setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
 
@@ -78,8 +84,13 @@ set completeopt=longest,menuone		" Show longest match, at lest one option
 inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
   \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
-set ai
+" file settings
+set ai 
 set si
+set ignorecase " case-insenstive search 
+set incsearch " incremental search 
+set smartcase " do smart case matching
+set showmatch " show matching brackets 
 
 " Key mappings
 nmap <F7> :tabprevious<CR>
@@ -97,6 +108,7 @@ vnoremap <C-K> :call PhpDocRange()<CR>
 
 " Command-T
 nmap <C-t> :CommandT<CR>
+nmap <C-f> :CommandTFlush<CR>
 
 " Align
 vmap <C-a> \t=<CR>
