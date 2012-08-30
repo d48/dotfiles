@@ -1,3 +1,8 @@
+" Prep some variables for use with syntastic syntax checker
+let g:syntastic_auto_loc_list=1
+let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
+let g:syntastic_jshint_config = '~/.jshintrc'
+
 set nocompatible
 filetype off
 
@@ -22,6 +27,7 @@ Bundle 'cschlueter/vim-clouds'
 Bundle 'vim-scripts/AutoComplPop'
 Bundle 'vim-scripts/PDV--phpDocumentor-for-Vim'
 Bundle 'tsaleh/vim-align'
+Bundle 'scrooloose/syntastic'
 
 " syntax highlighting for markdown files
 Bundle 'hallison/vim-markdown'
