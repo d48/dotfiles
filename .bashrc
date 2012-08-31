@@ -1,85 +1,65 @@
-# Environment setup
-export PS1="\n<\[\033[1;36m\]\u\[\033[0m\]>\[\033[1;36m\]\@\[\033[0m\] ->\W/ "
+# path aliases
+alias bm="cd ~/Sites/beachmint/"
+alias dl="cd ~/Downloads/"
+alias down="cd ~/Downloads/"
+alias download="cd ~/Downloads/"
+alias downloads="cd ~/Downloads/"
+alias ryan="cd ~/Sites/ryan/"
+alias sand="cd ~/Sites/ryan/sandbox/"
+alias home="cd ~"
+alias jshint="hint"
+alias ls="ls -a"
+alias lsl="ls -lha"
+alias lsa="ls -lht" # sort by date ascending
+alias lsd="ls -lhtr" # sort by date descending
+alias devconf='cd /private/etc/apache2/users/' 
+alias phpini='cd /private/etc/'
+
+# command aliases
+alias selcon='./tests/test-core/bin/seleniumRunner config'
+alias tmux="tmux -2"
+alias sub="subl"
+alias vi="mvim -v"
+alias pub="phpunit --bootstrap TestHelper.php"
+
+
+# path/var settings
+export PATH=/Users/rregalado/node_modules/jshint/bin:$PATH
+export PATH=/Users/rregalado/Sites/beachmint/ci/bin:$PATH
+export PATH=/Users/rregalado/Sites/beachmint/ci/phpunit-git-deploy/bin:$PATH
+export PATH=/Users/rregalado/node_modules/.bin:$PATH
+export PATH=/Users/rregalado/Sites/ryan/sandbox/less/lessphp:$PATH
+export PATH=/usr/local/Cellar/macvim/7.3-64:$PATH
+export PATH=/usr/local/bin:$PATH
+export PATH=~/.bin:$PATH
+export PATH=~/Sites/beachmint/cli/bin:$PATH
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
-# directory shortcuts
-alias blog="cd ~/Dropbox/Dev/node-mongo-blog/"
-alias dl="cd ~/Downloads"
-alias downloads="cd ~/Downloads"
-alias dotfiles="cd ~/Dropbox/Dev/dotfiles"
-alias dot="cd ~/Dropbox/Dev/dotfiles"
-alias pro="cd ~/Dropbox/Dev/"
-alias dev="cd ~/Dropbox/Dev/"
-alias rr="cd ~/Dropbox/Apps/scriptogram/posts"
-alias sand="cd ~/Dropbox/Dev/sandbox"
-alias k="cd ~/Dropbox/Dev/kenny"
-alias hubot="cd ~/Dropbox/Dev/hubot-dev"
-alias hu="cd ~/Dropbox/Dev/hubot-dev"
-alias kt="cd ~/Dropbox/Dev/kenny/wp-content/themes/chunk-child"
-alias wine="cd ~/Dropbox/Dev/sandbox/javascript/backbone/WineCellar/"
-alias rails-blog="cd ~/Dropbox/Dev/rails-blog"
-alias rb="cd ~/Dropbox/Dev/rails-blog"
-# alias testim="cd ~/Dropbox/Dev/testim-app"
-alias testim="cd ~/Dropbox/Dev/mytestimony/"
-alias mytestimony="cd ~/Dropbox/Dev/mytestimony/"
-alias mytestim="cd ~/Dropbox/Dev/mytestimony/"
-alias winecellar="cd ~/Dropbox/Dev/sandbox/javascript/backbone/WineCellar/"
-alias ubl="cd ~/Dropbox/Dev/urban-body-laser/"
-
-# Apache - default
-alias hosts="cd /etc"
-alias httpdconf="cd /private/etc/apache2"
-# alias restart="sudo apachectl restart"
-
-# Apache - MAMP
-alias restart="/Applications/MAMP/bin/apache2/bin/apachectl restart"
-alias httpdconfmamp="cd /Applications/MAMP/conf/apache"
-alias vhostsmamp="cd /Applications/MAMP/conf/apache/extra"
-alias vhosts="cd /Applications/MAMP/conf/apache/extra"
-alias logmamp="cd /Applications/MAMP/logs"
-alias mamplogs="cd /Applications/MAMP/logs"
-alias logs="cd /Applications/MAMP/logs"
-
-alias home="cd ~"
-alias ls="ls -a"
-alias lsl="ls -lha"
-
-# list files by date modified, descending with size in readable units
-alias lsd="ls -lht"
-alias lst="ls -lht"
-# list files by date modified, ascending with size in readable units
-alias lsa="ls -lhtr"
-alias lsr="ls -lhtr"
-
-# Application Shortcuts
-alias vi="mvim -v"
-alias sub="subl"
-
 # File commands
-set autoindent			
-set mouse=a			# cursor where mouse clicks
-set clipboard=unnamed	# to system buffer
-set nobackup			 
-set nowritebackup		# Don't write backup files
-set hlsearch			# highlight search word
+set autoindent
+set mouse=a
+set clipboard=unnamed
+set nobackup
+set nowritebackup
 
-# Path setup
-export ANT_HOME=/usr/local/ant
-export PATH=${PATH}:${ANT_HOME}/bin
-export PATH=~/.bin:$PATH
-export PATH=/usr/local/bin:$PATH
-export PATH=/usr/local/bin/node:$PATH
+# bash prompt
+function current { branch=`git current`; if [[ -n $branch ]]; then echo " ($branch)"; fi }
+export PS1='\n<\033[1;36m\]\u\[\033[0m\]> \033[1;36m\]$(date +%m-%d) \@\033[0m\] \w\n\033[1;33m\]$(current)\[\033[0m\] \033[1;36m\]⚡\[\033[0m\] ' 
 
-# node modules
-export PATH=$PATH:~/node_modules/.bin
+# vi commands in bash
+set -o vi
 
-# Git setup
+# git
 alias ga="git add"
-alias gc="git commit -m"
-alias gs="git status;git stash list"
+alias gcm="git commit -m"
 alias gcam="git commit -am"
-source ./.git-completion.sh
+alias gs="git status"
+alias gitpull="git pull origin master;git submodule init;git submodule update;cd platform;git submodule init;git submodule update"
+source ~/.git-completion.sh
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-# tmux
+#vm commands
+function vmlog() { ssh bmdev "tail -f /var/log/nginx/\"$@\".log" ;}
+complete -o "nospace" -W "shoe_error beauty_error home_error inti_error js_error api_error jewel_error style_error" vmlog
+alias vmrestart='ssh bmdev "shutdown -r now" && echo "Restarting..."'
+alias vmchef='ssh bmdev "chef-solo ~/single_run.rb"'
