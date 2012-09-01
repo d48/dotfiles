@@ -29,8 +29,9 @@ Bundle 'vim-scripts/PDV--phpDocumentor-for-Vim'
 Bundle 'tsaleh/vim-align'
 Bundle 'scrooloose/syntastic'
 
-" syntax highlighting for markdown files
+" syntax highlighting
 Bundle 'hallison/vim-markdown'
+Bundle 'vim-scripts/jade.vim'
 
 
 " vim-scripts repos
@@ -79,6 +80,7 @@ autocmd Filetype javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expand
 autocmd Filetype css setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
 autocmd Filetype coffee setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
 autocmd Filetype json setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
+autocmd Filetype jade setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
 autocmd Filetype html setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
 autocmd Filetype phtml setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
 autocmd Filetype php setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
@@ -116,8 +118,10 @@ vnoremap <C-K> :call PhpDocRange()<CR>
 nmap <C-t> :CommandT<CR>
 nmap <C-f> :CommandTFlush<CR>
 
-" Align
+" Aligns on equal sign
 vmap <C-a> \t=<CR>
+" Aligns on pipe = <bar>, for markdown tables
+vmap <C-t> \t<bar><CR>
 
 " clear search highlight
 nmap <silent> ,, :noh<CR>
