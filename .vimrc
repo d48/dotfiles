@@ -1,8 +1,3 @@
-" Prep some variables for use with syntastic syntax checker
-let g:syntastic_auto_loc_list=1
-let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
-let g:syntastic_jshint_config = '~/.jshintrc'
-
 set nocompatible
 filetype off
 
@@ -27,12 +22,7 @@ Bundle 'cschlueter/vim-clouds'
 Bundle 'vim-scripts/AutoComplPop'
 Bundle 'vim-scripts/PDV--phpDocumentor-for-Vim'
 Bundle 'tsaleh/vim-align'
-Bundle 'scrooloose/syntastic'
-
-" syntax highlighting
-Bundle 'hallison/vim-markdown'
-Bundle 'vim-scripts/jade.vim'
-
+Bundle 'vim-scripts/taglist.vim'
 
 " vim-scripts repos
 Bundle 'L9'
@@ -74,14 +64,11 @@ set cc=80				" highlight column 80 for visual
 au BufRead,BufNewFile *.json set filetype=javascript
 au BufRead,BufNewFile *.less set filetype=css
 au BufRead,BufNewFile *.styl set filetype=css
-au BufRead,BufNewFile *.phtml set filetype=html
-au BufRead,BufNewFile *.php.dist set filetype=php
 autocmd Filetype javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
 autocmd Filetype css setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
 autocmd Filetype coffee setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
 autocmd Filetype json setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
-autocmd Filetype jade setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
-autocmd Filetype html setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
+autocmd Filetype html setlocal tabstop=5 shiftwidth=5 softtabstop=5 expandtab 
 autocmd Filetype phtml setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
 autocmd Filetype php setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
 
@@ -92,13 +79,8 @@ set completeopt=longest,menuone		" Show longest match, at lest one option
 inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
   \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
-" file settings
-set ai 
+set ai
 set si
-set ignorecase " case-insenstive search 
-set incsearch " incremental search 
-set smartcase " do smart case matching
-set showmatch " show matching brackets 
 
 " Key mappings
 nmap <F7> :tabprevious<CR>
@@ -116,12 +98,35 @@ vnoremap <C-K> :call PhpDocRange()<CR>
 
 " Command-T
 nmap <C-t> :CommandT<CR>
-nmap <C-f> :CommandTFlush<CR>
 
-" Aligns on equal sign
+" taglist
+let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
+
+" toggle with ctrl+L
+nnoremap <C-l> :TlistToggle<CR>
+
+" " quit Vim when the TagList window is the last open window
+let Tlist_Exit_OnlyWindow=1         " quit when TagList is the last open window
+let Tlist_GainFocus_On_ToggleOpen=1 " put focus on the TagList window when it opens
+"let Tlist_Process_File_Always=1     " process files in the background, even when the TagList window isn't open
+"let Tlist_Show_One_File=1           " only show tags from the current buffer, not all open buffers
+let Tlist_WinWidth=40               " set the width
+let Tlist_Inc_Winwidth=1            " increase window by 1 when growing
+
+
+" show function/method prototypes in the list
+let Tlist_Display_Prototype=1
+
+" don't show scope info
+let Tlist_Display_Tag_Scope=0
+
+" show TagList window on the right
+let Tlist_Use_Right_Window=1
+
+
+
+" Align
 vmap <C-a> \t=<CR>
-" Aligns on pipe = <bar>, for markdown tables
-vmap <C-t> \t<bar><CR>
 
 " clear search highlight
 nmap <silent> ,, :noh<CR>
@@ -131,6 +136,25 @@ nmap <C-p> <Esc>yyp
 
 " aligning comments                                                             
 autocmd BufNewFile,BufRead * setlocal formatoptions+=or " show pwd in vim
+
+" code folding
+" ----------------------------------------------------
+
+	" open folds upon opening file
+	set foldmethod=indent
+	set nofoldenable
+	 " auto-define folds but unfold them on startup
+	" autocmd Syntax * normal zR
+
+	" fold within block
+	vmap <space> za<CR> 
+	nmap <silent> \f za<CR>
+	nmap <C-f> za<CR>
+	" open fold
+	" nnoremap <space> zo<CR> 
+	" open all
+	nmap <C-o> zR<CR>
+
 
 if &term == "screen"
     set t_ts=^[k
