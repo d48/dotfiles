@@ -1,3 +1,8 @@
+" Prep some variables for use with syntastic syntax checker
+let g:syntastic_auto_loc_list=1
+let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
+let g:syntastic_jshint_config = '~/.jshintrc'
+
 set nocompatible
 filetype off
 
@@ -23,6 +28,9 @@ Bundle 'vim-scripts/AutoComplPop'
 Bundle 'vim-scripts/PDV--phpDocumentor-for-Vim'
 Bundle 'tsaleh/vim-align'
 Bundle 'vim-scripts/taglist.vim'
+Bundle 'majutsushi/tagbar'
+Bundle 'mozilla/doctorjs'
+Bundle 'scrooloose/syntastic'
 
 " vim-scripts repos
 Bundle 'L9'
@@ -89,7 +97,8 @@ map <C-h> :tabprevious<CR>
 map <C-l> :tabnext<CR>
 nnoremap <D-up> :resize -5<CR>
 nnoremap <D-down> :resize +5<CR>
-nmap <F1> :NERDTreeToggle<CR>    " Ctrl+N to toggle                   
+nmap <F1> :NERDTreeToggle<CR>
+nmap <C-n> :NERDTreeToggle<CR>
                                                                                 
 " PHP doc block                                                                 
 inoremap <C-K> <ESC>:call PhpDocSingle()<CR>i                                   
@@ -99,11 +108,15 @@ vnoremap <C-K> :call PhpDocRange()<CR>
 " Command-T
 nmap <C-t> :CommandT<CR>
 
-" taglist
+" taglist / jsctags
 let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
+let g:tagbar_type_javascript = {
+    \ 'ctagsbin' : '/Users/rregalado/.vim/bundle/doctorjs/bin/jsctags.js'
+\ }
 
 " toggle with ctrl+L
 nnoremap <C-l> :TlistToggle<CR>
+nnoremap <C-b> :TagbarToggle<CR>
 
 " " quit Vim when the TagList window is the last open window
 let Tlist_Exit_OnlyWindow=1         " quit when TagList is the last open window
@@ -112,6 +125,7 @@ let Tlist_GainFocus_On_ToggleOpen=1 " put focus on the TagList window when it op
 "let Tlist_Show_One_File=1           " only show tags from the current buffer, not all open buffers
 let Tlist_WinWidth=40               " set the width
 let Tlist_Inc_Winwidth=1            " increase window by 1 when growing
+let tlist_cpp_settings = 'c:class;f:function'
 
 
 " show function/method prototypes in the list
