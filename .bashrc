@@ -21,7 +21,8 @@ alias tmux="tmux -2"
 alias sub="subl"
 alias vi="mvim -v"
 alias pub="phpunit --bootstrap TestHelper.php"
-alias vbox="VBoxManage startvm \"bmdev-12.04\""
+alias vboxstart="VBoxManage startvm \"bmdev-12.04\""
+alias vboxstop="VBoxManage controlvm \"bmdev-12.04\" savestate"
 
 
 # path/var settings
