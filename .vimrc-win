@@ -1,0 +1,41 @@
+" screen settings
+" set lines=50
+" set columns=150
+" set lines=888 columns=222
+set lines=80 columns=120
+set number
+
+" for tabs
+autocmd FileType html setlocal shiftwidth=5 tabstop=5
+autocmd FileType c setlocal shiftwidth=5 tabstop=5
+autocmd FileType js setlocal shiftwidth=2 tabstop=2 
+autocmd FileType php setlocal shiftwidth=5 tabstop=5
+autocmd FileType css setlocal shiftwidth=2 tabstop=2
+
+set shiftwidth=4
+set tabstop=4
+ 
+
+" for color
+" colorscheme darkbone 
+" set t_Co=256
+colorscheme lucius
+set guifont=Consolas:h10:cANSI
+set guioptions-=T
+
+" for plugins
+autocmd Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim
+let g:ragtag_global_maps = 1
+
+" for autocomplete with context-sensitive menu. find out how to install, especially for css
+" autocmd FileType python set omnifunc=pythoncomplete#Complete
+" autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+" autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+" autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+" autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+" autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+" autocmd FileType c set omnifunc=ccomplete#Complete
+
+" key mapping
+map <F7> :tabp <CR>
+map <F8> :tabn <CR>
