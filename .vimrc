@@ -57,7 +57,8 @@ set t_Co=256
 if &t_Co > 2 || has("gui_running")
 	syntax on
 	" colorscheme hemisu
-	colorscheme lucius 
+	" colorscheme lucius 
+	colorscheme Twilight 
 	" colorscheme Clouds 
 	" set background=dark
 endif
