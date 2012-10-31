@@ -30,6 +30,7 @@ Bundle 'tsaleh/vim-align'
 " Bundle 'Townk/vim-autoclose'
 Bundle 'vim-scripts/Auto-Pairs'
 Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'mattn/zencoding-vim'
 
 " syntax highlighting
 Bundle 'hallison/vim-markdown'
@@ -84,13 +85,13 @@ au BufRead,BufNewFile *.sass set filetype=css
 au BufRead,BufNewFile *.less set filetype=css
 au BufRead,BufNewFile *.styl set filetype=css
 au BufRead,BufNewFile *.jade set filetype=html
-au BufRead,BufNewFile *.chtml set filetype=html
+au BufRead,BufNewFile *.cshtml set filetype=html
 au BufRead,BufNewFile *.phtml set filetype=html
 au BufRead,BufNewFile *.php.dist set filetype=php
-autocmd Filetype javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
-autocmd Filetype css setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
-autocmd Filetype coffee setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
-autocmd Filetype json setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
+autocmd Filetype javascript setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
+autocmd Filetype css setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
+autocmd Filetype coffee setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
+autocmd Filetype json setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
 autocmd Filetype jade setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
 autocmd Filetype html setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
 autocmd Filetype phtml setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
@@ -155,3 +156,6 @@ autocmd BufEnter * let &titlestring = "vim " . expand("%:t") . " " . expand("%:h
 
 " auto change current dir to file that is open
 " autocmd BufEnter * silent! lcd %:p:h
+
+" tab hi lights
+hi TabLineSel ctermbg=121 ctermfg=0
