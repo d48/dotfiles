@@ -31,6 +31,7 @@ Bundle 'tsaleh/vim-align'
 Bundle 'vim-scripts/Auto-Pairs'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'mattn/zencoding-vim'
+Bundle 'benmills/vimux'
 
 " syntax highlighting
 Bundle 'hallison/vim-markdown'
@@ -89,7 +90,7 @@ au BufRead,BufNewFile *.cshtml set filetype=html
 au BufRead,BufNewFile *.phtml set filetype=html
 au BufRead,BufNewFile *.php.dist set filetype=php
 autocmd Filetype javascript setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
-autocmd Filetype css setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
+autocmd Filetype css setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
 autocmd Filetype coffee setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
 autocmd Filetype json setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
 autocmd Filetype jade setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
@@ -120,6 +121,8 @@ map <C-l> :tabnext<CR>
 nnoremap <D-up> :resize -5<CR>
 nnoremap <D-down> :resize +5<CR>
 nmap <F1> :NERDTreeToggle<CR>    " Ctrl+N to toggle                   
+nnoremap <F2> :set nonumber!<CR>
+
                                                                                 
 " PHP doc block                                                                 
 inoremap <C-K> <ESC>:call PhpDocSingle()<CR>i                                   
