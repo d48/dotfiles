@@ -1,67 +1,160 @@
-# path aliases
-alias bm="cd ~/Sites/beachmint/"
-alias dl="cd ~/Downloads/"
-alias down="cd ~/Downloads/"
-alias download="cd ~/Downloads/"
-alias downloads="cd ~/Downloads/"
-alias ryan="cd ~/Sites/ryan/"
-alias sand="cd ~/Sites/ryan/sandbox/"
-alias home="cd ~"
-alias jshint="hint"
-alias ls="ls -a"
-alias lsl="ls -lha"
-alias lsa="ls -lht" # sort by date ascending
-alias lsd="ls -lhtr" # sort by date descending
-alias devconf='cd /private/etc/apache2/users/' 
-alias phpini='cd /private/etc/'
+# Colors
+Color_Off='\e[0m'       # Text Reset
 
-# command aliases
-alias selcon='./tests/test-core/bin/seleniumRunner config'
-alias tmux="tmux -2"
-alias sub="subl"
-alias vi="mvim -v"
-alias pub="phpunit --bootstrap TestHelper.php"
-alias vboxstart="VBoxManage startvm \"bmdev-12.04\""
-alias vboxstop="VBoxManage controlvm \"bmdev-12.04\" savestate"
+# Regular Colors
+Black='\e[0;30m'        # Black
+Red='\e[0;31m'          # Red
+Green='\e[0;32m'        # Green
+Yellow='\e[0;33m'       # Yellow
+Blue='\e[0;34m'         # Blue
+Purple='\e[0;35m'       # Purple
+Cyan='\e[0;36m'         # Cyan
+White='\e[0;37m'        # White
+
+K="\[\033[0;30m\]"    # black
+R="\[\033[0;31m\]"    # red
+G="\[\033[0;32m\]"    # green
+Y="\[\033[0;33m\]"    # yellow
+B="\[\033[0;34m\]"    # blue
+M="\[\033[0;35m\]"    # magenta
+C="\[\033[0;36m\]"    # cyan
+W="\[\033[0;37m\]"    # white
+
+# Emphasis Colors
+EMK="\[\033[1;30m\]"
+EMR="\[\033[1;31m\]"
+EMG="\[\033[1;32m\]"
+EMY='\e[1;33m'       # Yellow
+EMB="\[\033[1;34m\]"
+EMM="\[\033[1;35m\]"
+EMC="\[\033[1;36m\]"
+EMW="\[\033[1;37m\]"
 
 
-# path/var settings
-export PATH=/Users/rregalado/node_modules/jshint/bin:$PATH
-export PATH=/Users/rregalado/Sites/beachmint/ci/bin:$PATH
-export PATH=/Users/rregalado/Sites/beachmint/ci/phpunit-git-deploy/bin:$PATH
-export PATH=/Users/rregalado/node_modules/.bin:$PATH
-export PATH=/Users/rregalado/Sites/ryan/sandbox/less/lessphp:$PATH
-export PATH=/usr/local/Cellar/macvim/7.3-64:$PATH
-export PATH=/usr/local/bin:$PATH
-export PATH=~/.bin:$PATH
-export PATH=~/Sites/beachmint/cli/bin:$PATH
+# Environment setup
+export PS1='\n<\[\033[1;36m\]\u\[\033[0m\]>\[\033[1;36m\]\@\[\033[0m\] '"${EMY}"'`git current` '"${White}"'->\W/ ' 
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
+# directory shortcuts
+alias accendo="cd ~/Dropbox/Dev/accendo/"
+alias blog="cd ~/Dropbox/Dev/node-mongo-blog/"
+alias coffeehello="cd ~/Dropbox/Dev/sandbox/coffee-script/helloworld/"
+alias ch="cd ~/Dropbox/Dev/sandbox/coffee-script/helloworld/"
+alias dl="cd ~/Downloads"
+alias downloads="cd ~/Downloads"
+alias dotfiles="cd ~/Dropbox/Dev/dotfiles"
+alias dot="cd ~/Dropbox/Dev/dotfiles"
+alias drop="cd ~/Dropbox"
+alias dropbox="cd ~/Dropbox"
+alias posts="cd ~/Dropbox/Apps/scriptogram/posts/"
+alias pro="cd ~/Dropbox/Projects/"
+alias dev="cd ~/Dropbox/Dev/"
+alias harness="cd ~/Dropbox/Dev/Harness-Media-Website"
+alias hmg="cd ~/Dropbox/Dev/Harness-Media-Website"
+alias rr="cd ~/Dropbox/Apps/scriptogram/posts"
+alias sand="cd ~/Dropbox/Dev/sandbox"
+alias k="cd ~/Dropbox/Dev/kenny"
+alias hubot="cd ~/Dropbox/Dev/hubot-dev"
+alias hu="cd ~/Dropbox/Dev/hubot-dev"
+alias kt="cd ~/Dropbox/Dev/kenny/wp-content/themes/chunk-child"
+alias wine="cd ~/Dropbox/Dev/sandbox/javascript/backbone/WineCellar/"
+alias rails-blog="cd ~/Dropbox/Dev/rails-blog"
+alias rb="cd ~/Dropbox/Dev/rails-blog"
+# alias testim="cd ~/Dropbox/Dev/testim-app"
+alias testim="cd ~/Dropbox/Dev/mytestimony/"
+alias mytestimony="cd ~/Dropbox/Dev/mytestimony/"
+alias mytestim="cd ~/Dropbox/Dev/mytestimony/"
+alias sites="cd ~/Sites/projects/"
+alias winecellar="cd ~/Dropbox/Dev/sandbox/javascript/backbone/WineCellar/"
+alias ubl="cd ~/Dropbox/Dev/urban-body-laser/"
+alias bldev="cd /Users/ryanregalado/Dropbox/Development-BL/BL/Web/FCS/Desktop/App"
+
+# utilities
+alias size="du -sch"
+
+# Apache - default
+alias hosts="cd /etc"
+alias httpdconf="cd /private/etc/apache2"
+alias restart="sudo apachectl restart"
+
+# Apache - MAMP
+# alias restart="/Applications/MAMP/bin/apache2/bin/apachectl restart"
+alias httpdconfmamp="cd /Applications/MAMP/conf/apache"
+alias vhostsmamp="cd /Applications/MAMP/conf/apache/extra"
+alias vhosts="cd /Applications/MAMP/conf/apache/extra"
+alias logmamp="cd /Applications/MAMP/logs"
+alias mamplogs="cd /Applications/MAMP/logs"
+alias logs="cd /var/log/apache2/"
+
+alias home="cd ~"
+alias ls="ls -a"
+alias lsl="ls -lha"
+
+# list files by date modified, descending with size in readable units
+alias lsd="ls -lht"
+alias lst="ls -lht"
+# list files by date modified, ascending with size in readable units
+alias lsa="ls -lhtr"
+alias lsr="ls -lhtr"
+
+# Application Shortcuts
+alias vi="mvim -v"
+alias sub="subl"
+
 # File commands
-set autoindent
-set mouse=a
-set clipboard=unnamed
-set nobackup
-set nowritebackup
+set autoindent			
+set mouse=a			# cursor where mouse clicks
+set clipboard=unnamed	# to system buffer
+set nobackup			 
+set nowritebackup		# Don't write backup files
+set hlsearch			# highlight search word
 
-# bash prompt
-function current { branch=`git current`; if [[ -n $branch ]]; then echo " ($branch)"; fi }
-export PS1='\n<\033[1;36m\]\u\[\033[0m\]> \033[1;36m\]$(date +%m-%d) \@\033[0m\] \w\n\033[1;33m\]$(current)\[\033[0m\] \033[1;36m\]⚡\[\033[0m\] ' 
+# Path setup
+export ANT_HOME=/usr/local/ant
+export PATH=${PATH}:${ANT_HOME}/bin
+export PATH=~/.bin:$PATH
+export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/bin/node:$PATH
+export PATH=/usr/local/share/npm/bin:$PATH
 
-# vi commands in bash
-set -o vi
+# node modules
+export PATH=$PATH:~/node_modules/.bin
 
-# git
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;34m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
+
+# Less Colors for Man Pages
+# export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
+# export LESS_TERMCAP_md=$'\E[01;38;5;74m'  # begin bold
+# export LESS_TERMCAP_me=$'\E[0m'           # end mode
+# export LESS_TERMCAP_se=$'\E[0m'           # end standout-mode
+# export LESS_TERMCAP_so=$'\E[38;5;246m'    # begin standout-mode - info box
+# export LESS_TERMCAP_ue=$'\E[0m'           # end underline
+# export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
+ 
+alias man='man -P less'
+
+# Git setup
 alias ga="git add"
-alias gcm="git commit -m"
+alias gc="git commit -m"
+alias gd="git diff"
+alias gs="git status;git stash list"
 alias gcam="git commit -am"
-alias gs="git status"
-alias gitpull="git pull origin master;git submodule init;git submodule update;cd platform;git submodule init;git submodule update"
-source ~/.git-completion.sh
+source ./.git-completion.sh
 
-#vm commands
-function vmlog() { ssh bmdev "tail -f /var/log/nginx/\"$@\".log" ;}
-complete -o "nospace" -W "shoe_error beauty_error home_error inti_error js_error api_error jewel_error style_error" vmlog
-alias vmrestart='ssh bmdev "shutdown -r now" && echo "Restarting..."'
-alias vmchef='ssh bmdev "chef-solo ~/single_run.rb"'
+# set vi mode in bash
+set -o vi
+# auto-complete history with up and down arrow. type some text [UP]
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# tmux
+
+source ~/.bash_profile
