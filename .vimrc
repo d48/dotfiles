@@ -3,6 +3,9 @@ let g:syntastic_auto_loc_list=1
 let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
 let g:syntastic_jshint_config = '~/.jshintrc'
 
+" Setup autotags for ctags
+let g:easytags_cmd = '/usr/local/bin/ctags'
+
 set nocompatible
 filetype off
 
@@ -31,6 +34,8 @@ Bundle 'vim-scripts/Auto-Pairs'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'mattn/zencoding-vim'
 Bundle 'benmills/vimux'
+" Commmands: :UpdateTags -R . and :HighlightTags 
+Bundle 'xolox/vim-easytags'
 
 " syntax highlighting
 Bundle 'hallison/vim-markdown'
@@ -131,6 +136,10 @@ vnoremap <C-K> :call PhpDocRange()<CR>
 " ctags
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <C-s> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+" jump to definition 
+map <C-j> <C-]> 
+" jump back to function call
+map <C-b> <C-o> 
 
 " Command-T
 nmap <C-t> :CommandT<CR>
