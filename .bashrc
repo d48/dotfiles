@@ -117,6 +117,7 @@ export PATH=~/.bin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/bin/node:$PATH
 export PATH=/usr/local/share/npm/bin:$PATH
+export PATH=/usr/local/share/python:$PATH
 
 # node modules
 export PATH=$PATH:~/node_modules/.bin

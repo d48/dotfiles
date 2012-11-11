@@ -27,7 +27,6 @@ Bundle 'cschlueter/vim-clouds'
 Bundle 'vim-scripts/AutoComplPop'
 Bundle 'vim-scripts/PDV--phpDocumentor-for-Vim'
 Bundle 'tsaleh/vim-align'
-" Bundle 'Townk/vim-autoclose'
 Bundle 'vim-scripts/Auto-Pairs'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'mattn/zencoding-vim'
@@ -128,6 +127,10 @@ nnoremap <F2> :set nonumber!<CR>
 inoremap <C-K> <ESC>:call PhpDocSingle()<CR>i                                   
 nnoremap <C-K> :call PhpDocSingle()<CR>                                         
 vnoremap <C-K> :call PhpDocRange()<CR>                                          
+
+" ctags
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+map <C-s> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 " Command-T
 nmap <C-t> :CommandT<CR>
