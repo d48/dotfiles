@@ -19,6 +19,7 @@
 	l = log
 	lol = log --pretty=oneline --abbrev-commit --decorate
 	lolg = !"git log --format='%Cgreen%h %Creset%C(cyan)%an%Creset%C(magenta)%d%Creset - %s' --graph"
+	myinit = !sh -c 'git init && touch .gitignore && git add . && git c -m \"initial commit\" && cp ~/.git/post-commit .git/hooks/' -
 	p = pull --prune
 	si = submodule init
 	su = submodule update --recursive
@@ -40,3 +41,4 @@
 
 [push]
 	default = current
+
