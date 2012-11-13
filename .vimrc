@@ -25,7 +25,6 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'walm/jshint.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-markdown'
 Bundle 'cschlueter/vim-clouds'
 Bundle 'vim-scripts/AutoComplPop'
 Bundle 'vim-scripts/PDV--phpDocumentor-for-Vim'
@@ -35,10 +34,16 @@ Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'mattn/zencoding-vim'
 Bundle 'benmills/vimux'
 " Commmands: :UpdateTags -R . and :HighlightTags 
+"
+" Snipmate and dependencies
 Bundle 'xolox/vim-easytags'
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "honza/snipmate-snippets"
+Bundle "garbas/vim-snipmate"
 
 " syntax highlighting
-Bundle 'hallison/vim-markdown'
+Bundle "vim-pandoc/vim-pandoc"
 Bundle 'vim-scripts/jade.vim'
 
 " colorschemes
@@ -101,6 +106,9 @@ autocmd Filetype jade setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
 autocmd Filetype html setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
 autocmd Filetype phtml setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
 autocmd Filetype php setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
+
+" pandoc settings, markdown
+let g:pandoc_no_folding = 1
 
 " omni completion
 filetype plugin on
@@ -166,6 +174,10 @@ endif
 if &term == "screen" || &term == "xterm"
     set title
 endif
+
+" to modify buffer, for search and replace, etc
+set modifiable
+set write
 
 autocmd BufEnter * let &titlestring = "vim " . expand("%:t") . " " . expand("%:h")
 
