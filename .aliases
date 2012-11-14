@@ -16,17 +16,98 @@ alias la="ls -la ${colorflag}"
 alias lsd='ls -l | grep "^d"'
 
 # Shortcuts
-alias g="git"
-alias v="vim"
 alias x='exit'
 alias q='exit'
-alias j='autojump'
+
+# Programs
+alias ctags="`brew --prefix`/bin/ctags"
+alias g="git"
+alias v="vim"
+
+# git
+alias gitclean="rm -Rf .git/ && rm .gitignore"
 
 # Paths
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
+alias up="cd .."
 
 # colorful cat
 alias c='pygmentize -O style=monokai -f console256 -g'
+
+# directory shortcuts
+alias accendo="cd ~/Dropbox/Dev/accendo/"
+alias blog="cd ~/Dropbox/Dev/node-mongo-blog/"
+alias coffeehello="cd ~/Dropbox/Dev/sandbox/coffee-script/helloworld/"
+alias ch="cd ~/Dropbox/Dev/sandbox/coffee-script/helloworld/"
+alias dl="cd ~/Downloads"
+alias downloads="cd ~/Downloads"
+alias dotfiles="cd ~/Dropbox/Dev/dotfiles"
+alias dot="cd ~/Dropbox/Dev/dotfiles"
+alias drop="cd ~/Dropbox"
+alias dropbox="cd ~/Dropbox"
+alias posts="cd ~/Dropbox/Apps/scriptogram/posts/"
+alias pro="cd ~/Dropbox/Projects/"
+alias dev="cd ~/Dropbox/Dev/"
+alias harness="cd ~/Dropbox/Dev/Harness-Media-Website"
+alias hmg="cd ~/Dropbox/Dev/Harness-Media-Website"
+alias rr="cd ~/Dropbox/Apps/scriptogram/posts"
+alias sand="cd ~/Dropbox/Dev/sandbox"
+alias k="cd ~/Dropbox/Dev/kenny"
+alias hubot="cd ~/Dropbox/Dev/hubot-dev"
+alias hu="cd ~/Dropbox/Dev/hubot-dev"
+alias kt="cd ~/Dropbox/Dev/kenny/wp-content/themes/chunk-child"
+alias wine="cd ~/Dropbox/Dev/sandbox/javascript/backbone/WineCellar/"
+alias rails-blog="cd ~/Dropbox/Dev/rails-blog"
+alias rb="cd ~/Dropbox/Dev/rails-blog"
+# alias testim="cd ~/Dropbox/Dev/testim-app"
+alias testim="cd ~/Dropbox/Dev/mytestimony/"
+alias mytestimony="cd ~/Dropbox/Dev/mytestimony/"
+alias mytestim="cd ~/Dropbox/Dev/mytestimony/"
+alias sites="cd ~/Sites/projects/"
+alias winecellar="cd ~/Dropbox/Dev/sandbox/javascript/backbone/WineCellar/"
+alias ubl="cd ~/Dropbox/Dev/urban-body-laser/"
+alias bldev="cd /Users/ryanregalado/Dropbox/Development-BL/BL/Web/FCS/Desktop/App"
+
+# utilities
+alias size="du -sch"
+
+# Apache - default
+alias hosts="cd /etc"
+alias httpdconf="cd /private/etc/apache2"
+alias restart="sudo apachectl restart"
+
+# Apache - MAMP
+# alias restart="/Applications/MAMP/bin/apache2/bin/apachectl restart"
+alias httpdconfmamp="cd /Applications/MAMP/conf/apache"
+alias vhostsmamp="cd /Applications/MAMP/conf/apache/extra"
+alias vhosts="cd /Applications/MAMP/conf/apache/extra"
+alias logmamp="cd /Applications/MAMP/logs"
+alias mamplogs="cd /Applications/MAMP/logs"
+alias logs="cd /var/log/apache2/"
+
+alias home="cd ~"
+alias ls="ls -a"
+alias lsl="ls -lha"
+
+# list files by date modified, descending with size in readable units
+alias lsd="ls -lht"
+alias lst="ls -lht"
+# list files by date modified, ascending with size in readable units
+alias lsa="ls -lhtr"
+alias lsr="ls -lhtr"
+
+# Application Shortcuts
+alias vi="mvim -v"
+alias v="mvim -v"
+alias sub="subl"
+
+# Git setup
+alias ga="git add"
+alias gc="git commit -m"
+alias gd="git diff"
+alias gs="git status;git stash list"
+alias gcam="git commit -am"
+source ./.git-completion.sh
