@@ -18,11 +18,13 @@ alias lsd='ls -l | grep "^d"'
 # Shortcuts
 alias x='exit'
 alias q='exit'
+alias c='cd'
 
 # Programs
 alias ctags="`brew --prefix`/bin/ctags"
 alias g="git"
 alias v="vim"
+alias t="tree"
 
 # git
 alias gitclean="rm -Rf .git/ && rm .gitignore"
@@ -35,7 +37,7 @@ alias .....='cd ../../../..'
 alias up="cd .."
 
 # colorful cat
-alias c='pygmentize -O style=monokai -f console256 -g'
+alias cat='pygmentize -O style=monokai -f console256 -g'
 
 # directory shortcuts
 alias accendo="cd ~/Dropbox/Dev/accendo/"
