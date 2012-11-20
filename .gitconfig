@@ -36,6 +36,7 @@
 
 	# git pull on current branch you're on
 	pd = !"git pull origin `git current`"
+	wat = whatchanged -p --abbrev-commit --pretty=medium
 [core]
 	editor = vim
 
