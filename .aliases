@@ -112,4 +112,4 @@ alias gc="git commit -m"
 alias gd="git diff"
 alias gs="git status;git stash list"
 alias gcam="git commit -am"
-source ./.git-completion.sh
+source ~/.git-completion.sh
