@@ -95,10 +95,8 @@ alias ls="ls -a"
 alias lsl="ls -lha"
 
 # list files by date modified, descending with size in readable units
-alias lsd="ls -lht"
 alias lst="ls -lht"
 # list files by date modified, ascending with size in readable units
-alias lsa="ls -lhtr"
 alias lsr="ls -lhtr"
 
 # Application Shortcuts
@@ -114,5 +112,6 @@ alias gs="git status;git stash list"
 alias gcam="git commit -am"
 source ~/.git-completion.sh
 
-# application setup
+# application 
+# node app launcher
 alias launch="~/launch-app.sh"
