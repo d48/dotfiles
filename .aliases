@@ -8,6 +8,8 @@ fi
 
 # List all files colorized in long format
 alias l="ls ${colorflag}"
+# get latest file in current directory
+alias latest="find . | sort | tail -n 1"
 
 # List all files colorized in long format, including dot files
 alias la="ls -la ${colorflag}"
@@ -27,7 +29,6 @@ alias v="vim"
 alias t="tree"
 
 # git
-alias gitclean="rm -Rf .git/ && rm .gitignore"
 
 # Paths
 alias ..='cd ..'
@@ -105,6 +106,7 @@ alias v="mvim -v"
 alias sub="subl"
 
 # Git setup
+alias gitclean="rm -Rf .git/ && rm .gitignore"
 alias ga="git add"
 alias gc="git commit -m"
 alias gd="git diff"
@@ -114,4 +116,5 @@ source ~/.git-completion.sh
 
 # application 
 # node app launcher
-alias launch="~/launch-app.sh"
+alias launch="~/scripts/launch-app.sh"
+alias buildblog="~/scripts/buildblog.sh"
