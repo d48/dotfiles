@@ -26,8 +26,6 @@ Bundle 'walm/jshint.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-rails'
 Bundle 'cschlueter/vim-clouds'
-Bundle 'vim-scripts/AutoComplPop'
-Bundle 'vim-scripts/PDV--phpDocumentor-for-Vim'
 Bundle 'tsaleh/vim-align'
 Bundle 'vim-scripts/Auto-Pairs'
 Bundle 'nathanaelkane/vim-indent-guides'
@@ -50,8 +48,13 @@ Bundle 'vim-scripts/jade.vim'
 Bundle 'wgibbs/vim-irblack'
 Bundle 'vim-scripts/tir_black'
 Bundle 'matthewtodd/vim-twilight'
+Bundle 'tomasr/molokai'
 
 " vim-scripts repos
+Bundle 'vim-scripts/AutoComplPop'
+Bundle 'vim-scripts/PDV--phpDocumentor-for-Vim'
+Bundle 'vim-scripts/Rename'
+
 Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'rails.vim'
@@ -69,10 +72,13 @@ if &t_Co > 2 || has("gui_running")
 	syntax on
 	" colorscheme hemisu
 	" colorscheme lucius 
-	colorscheme Twilight 
+	set background=dark
+	colorscheme molokai 
+	" colorscheme Twilight 
 	" colorscheme Clouds 
 	" set background=dark
 endif
+
 
 set tabstop=5 softtabstop=5 shiftwidth=5 noexpandtab
 set number
@@ -98,7 +104,8 @@ au BufRead,BufNewFile *.jade set filetype=html
 au BufRead,BufNewFile *.cshtml set filetype=html
 au BufRead,BufNewFile *.phtml set filetype=html
 au BufRead,BufNewFile *.php.dist set filetype=php
-autocmd Filetype javascript setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
+au BufRead,BufNewFile *.md AcpDisable
+autocmd Filetype javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
 autocmd Filetype css setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
 autocmd Filetype coffee setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
 autocmd Filetype json setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
@@ -106,6 +113,7 @@ autocmd Filetype jade setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
 autocmd Filetype html setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
 autocmd Filetype phtml setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
 autocmd Filetype php setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
+autocmd Filetype ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
 
 " pandoc settings, markdown
 let g:pandoc_no_folding = 1
@@ -177,7 +185,6 @@ endif
 
 " to modify buffer, for search and replace, etc
 set modifiable
-set write
 
 autocmd BufEnter * let &titlestring = "vim " . expand("%:t") . " " . expand("%:h")
 
@@ -186,3 +193,29 @@ autocmd BufEnter * let &titlestring = "vim " . expand("%:t") . " " . expand("%:h
 
 " tab hi lights
 hi TabLineSel ctermbg=121 ctermfg=0
+
+
+function! ShowFunc(sort)
+let gf_s = &grepformat
+let gp_s = &grepprg
+if ( &filetype == "c" || &filetype == "php" || &filetype == "python" ||
+			\ &filetype == "sh" )
+	let &grepformat='%*\k%*\sfunction%*\s%l%*\s%f %m'
+	let &grepprg = 'ctags -x --'.&filetype.'-types=f --sort='.a:sort
+elseif ( &filetype == "perl" )
+	let &grepformat='%*\k%*\ssubroutine%*\s%l%*\s%f %m'
+	let &grepprg = 'ctags -x --perl-types=s --sort='.a:sort
+elseif ( &filetype == "vim" )
+	let &grepformat='%*\k%*\sfunction%*\s%l%*\s%f %m'
+	let &grepprg = 'ctags -x --vim-types=f --language-force=vim --sort='.a:sort
+endif
+if (&readonly == 0) | update | endif
+silent! grep %
+cwindow 10
+redraw
+let &grepformat = gf_s
+let &grepprg = gp_s
+endfunc
+
+noremap <F3> <Esc>:call ShowFunc("no")<CR><Esc>
+noremap <S-F3> <Esc>:call ShowFunc("yes")<CR><Esc>
