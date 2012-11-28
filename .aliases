@@ -72,6 +72,7 @@ alias mytestim="cd ~/Dropbox/Dev/mytestimony/"
 alias sites="cd ~/Sites/projects/"
 alias winecellar="cd ~/Dropbox/Dev/sandbox/javascript/backbone/WineCellar/"
 alias ubl="cd ~/Dropbox/Dev/urban-body-laser/"
+alias bl="cd /Users/ryanregalado/Dropbox/Development-BL/BL"
 alias bldev="cd /Users/ryanregalado/Dropbox/Development-BL/BL/Web/FCS/Desktop/App"
 
 # utilities
