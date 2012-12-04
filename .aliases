@@ -27,6 +27,7 @@ alias ctags="`brew --prefix`/bin/ctags"
 alias g="git"
 alias v="vim"
 alias t="tree"
+alias td="todo"
 
 # git
 
@@ -91,6 +92,9 @@ alias vhosts="cd /Applications/MAMP/conf/apache/extra"
 alias logmamp="cd /Applications/MAMP/logs"
 alias mamplogs="cd /Applications/MAMP/logs"
 alias logs="cd /var/log/apache2/"
+
+# Server
+alias serve="python -m SimpleHTTPServer"
 
 alias home="cd ~"
 alias ls="ls -a"

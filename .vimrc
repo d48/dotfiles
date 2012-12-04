@@ -107,7 +107,7 @@ au BufRead,BufNewFile *.php.dist set filetype=php
 au BufRead,BufNewFile *.md AcpDisable
 autocmd Filetype javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
 autocmd Filetype css setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
-autocmd Filetype coffee setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
+autocmd Filetype coffee setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
 autocmd Filetype json setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
 autocmd Filetype jade setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
 autocmd Filetype html setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
