@@ -6,3 +6,4 @@ Collection of my local dot files for mac environment set up.
 * vim
 * tmux
 * bash
+* snipmate
