@@ -29,6 +29,7 @@ alias g="git"
 alias v="vim"
 alias t="tree"
 alias td="todo"
+# alias js="cat $1 | json"
 
 # git
 
@@ -40,7 +41,7 @@ alias .....='cd ../../../..'
 alias up="cd .."
 
 # colorful cat
-alias cat='pygmentize -O style=monokai -f console256 -g'
+alias ccat='pygmentize -O style=monokai -f console256 -g'
 
 # directory shortcuts
 alias accendo="cd ~/Dropbox/Dev/accendo/"
