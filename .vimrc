@@ -31,6 +31,8 @@ Bundle 'vim-scripts/Auto-Pairs'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'mattn/zencoding-vim'
 Bundle 'benmills/vimux'
+Bundle 'nelstrom/vim-markdown-folding'
+Bundle 'vim-scripts/JavaScript-syntax'
 " Commmands: :UpdateTags -R . and :HighlightTags 
 "
 " Snipmate and dependencies
@@ -76,7 +78,6 @@ if &t_Co > 2 || has("gui_running")
 	colorscheme molokai 
 	" colorscheme Twilight 
 	" colorscheme Clouds 
-	" set background=dark
 endif
 
 
@@ -90,12 +91,12 @@ set nobackup			" Do not keep a backup file
 set noswapfile
 set history=1000		" Keep 1000 lines of command line history
 set hlsearch
-" set rnu				" relative line numbers, helps in fast delete
 set cc=80				" highlight column 80 for visual 
 " set paste				" format copy and paste from source
 
 " Filetypes
 au BufRead,BufNewFile *.json set filetype=javascript
+au BufRead,BufNewFile *.md set filetype=markdown
 au BufRead,BufNewFile *.scss set filetype=css
 au BufRead,BufNewFile *.sass set filetype=css
 au BufRead,BufNewFile *.less set filetype=css
@@ -161,6 +162,13 @@ map <C-b> <C-o>
 nmap <C-t> :CommandT<CR>
 nmap <C-f> :CommandTFlush<CR>
 
+" Command-T settings for iTerm
+if &term =~ "xterm" || &term =~ "screen"
+  let g:CommandTCancelMap     = ['<ESC>', '<C-c>']
+  let g:CommandTSelectNextMap = ['<C-n>', '<C-j>', '<ESC>OB']
+  let g:CommandTSelectPrevMap = ['<C-p>', '<C-k>', '<ESC>OA']
+endif
+
 " Aligns on equal sign
 vmap <C-a> \t=<CR>
 " Aligns on pipe = <bar>, for markdown tables
@@ -194,6 +202,9 @@ autocmd BufEnter * let &titlestring = "vim " . expand("%:t") . " " . expand("%:h
 " tab hi lights
 hi TabLineSel ctermbg=121 ctermfg=0
 
+" folding 
+nnoremap <Space> za
+
 
 function! ShowFunc(sort)
 let gf_s = &grepformat
@@ -219,3 +230,4 @@ endfunc
 
 noremap <F3> <Esc>:call ShowFunc("no")<CR><Esc>
 noremap <S-F3> <Esc>:call ShowFunc("yes")<CR><Esc>
+
