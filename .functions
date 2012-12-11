@@ -129,3 +129,8 @@ function gitshots() {
 	# run ruby file in home directory
 	~/scripts/gitshots-hook.sh	
 }
+
+# get definition of a word
+function def() {
+   source ~/scripts/dict.sh	
+}

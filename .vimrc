@@ -144,7 +144,9 @@ nnoremap <D-down> :resize +5<CR>
 nmap <F1> :NERDTreeToggle<CR>    " Ctrl+N to toggle                   
 nnoremap <F2> :set nonumber!<CR>
 
-                                                                                
+" AutoPairs
+let g:AutoPairs = {'{':'}'}                                                                     
+
 " PHP doc block                                                                 
 inoremap <C-K> <ESC>:call PhpDocSingle()<CR>i                                   
 nnoremap <C-K> :call PhpDocSingle()<CR>                                         
@@ -171,6 +173,7 @@ endif
 
 " Aligns on equal sign
 vmap <C-a> \t=<CR>
+
 " Aligns on pipe = <bar>, for markdown tables
 vmap <C-t> \t<bar><CR>
 

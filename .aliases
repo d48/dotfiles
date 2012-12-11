@@ -27,7 +27,6 @@ alias delete='rm -Rf'
 alias ctags="`brew --prefix`/bin/ctags"
 alias g="git"
 alias v="vim"
-alias t="tree"
 alias td="todo"
 # alias js="cat $1 | json"
 
@@ -125,3 +124,4 @@ source ~/.git-completion.sh
 # node app launcher
 alias launch="~/scripts/launch-app.sh"
 alias buildblog="~/scripts/buildblog.sh"
+alias todo='./bin/todo'
