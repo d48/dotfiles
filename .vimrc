@@ -183,6 +183,14 @@ nmap <silent> ,, :noh<CR>
 " copy and paste current line
 nmap <C-p> <Esc>yyp
 
+" aligning functions to view
+" top
+nmap zh <Esc>zt  
+" mid
+nmap zm <Esc>zz  
+" low
+nmap zl <Esc>zb  
+
 " aligning comments                                                             
 autocmd BufNewFile,BufRead * setlocal formatoptions+=or " show pwd in vim
 
