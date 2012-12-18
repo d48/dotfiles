@@ -51,6 +51,9 @@ Bundle 'wgibbs/vim-irblack'
 Bundle 'vim-scripts/tir_black'
 Bundle 'matthewtodd/vim-twilight'
 Bundle 'tomasr/molokai'
+Bundle 'vim-scripts/billw.vim'
+Bundle 'nelstrom/vim-blackboard'
+Bundle 'ratazzi/blackboard.vim'
 
 " vim-scripts repos
 Bundle 'vim-scripts/AutoComplPop'
@@ -74,12 +77,16 @@ if &t_Co > 2 || has("gui_running")
 	syntax on
 	" colorscheme hemisu
 	" colorscheme lucius 
-	set background=dark
-	colorscheme molokai 
+	" set background=dark
+	" colorscheme molokai 
+	" colorscheme blackboard
+	colorscheme ratazzi 
+	" colorscheme billw 
 	" colorscheme Twilight 
 	" colorscheme Clouds 
 endif
 
+" set background=dark
 
 set tabstop=5 softtabstop=5 shiftwidth=5 noexpandtab
 set number
@@ -87,11 +94,12 @@ set number
 set clipboard=unnamed	" Copy buffer to system clipboard
 set mouse=r			
 set mousefocus			" Follow mouse focus
+set ttymouse=xterm2
 set nobackup			" Do not keep a backup file
 set noswapfile
 set history=1000		" Keep 1000 lines of command line history
 set hlsearch
-set cc=80				" highlight column 80 for visual 
+" set cc=80				" highlight column 80 for visual 
 " set paste				" format copy and paste from source
 
 " Filetypes
@@ -145,7 +153,7 @@ nmap <F1> :NERDTreeToggle<CR>    " Ctrl+N to toggle
 nnoremap <F2> :set nonumber!<CR>
 
 " AutoPairs
-let g:AutoPairs = {'{':'}'}                                                                     
+" let g:AutoPairs = {'{':'}'}                                                                     
 
 " PHP doc block                                                                 
 inoremap <C-K> <ESC>:call PhpDocSingle()<CR>i                                   
@@ -185,11 +193,11 @@ nmap <C-p> <Esc>yyp
 
 " aligning functions to view
 " top
-nmap zh <Esc>zt  
+nmap mh <Esc>zt  
 " mid
-nmap zm <Esc>zz  
+nmap mm <Esc>zz  
 " low
-nmap zl <Esc>zb  
+nmap ml <Esc>zb  
 
 " aligning comments                                                             
 autocmd BufNewFile,BufRead * setlocal formatoptions+=or " show pwd in vim
@@ -242,3 +250,5 @@ endfunc
 noremap <F3> <Esc>:call ShowFunc("no")<CR><Esc>
 noremap <S-F3> <Esc>:call ShowFunc("yes")<CR><Esc>
 
+" auto correct
+iab funciton function
