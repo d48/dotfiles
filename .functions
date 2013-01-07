@@ -134,3 +134,21 @@ function gitshots() {
 function def() {
    source ~/scripts/dict.sh	
 }
+
+# remove all .DS_Store files from current directory, recursively
+function rmds() {
+	find . -type f -name .DS_Store -print0 | xargs -0 rm	
+}
+
+# remove all files of specific name passed in argument
+function rmf() {
+	if [ -z $1 ] ; then
+		echo "No argument provided"
+	fi 
+
+	if [ -f $1 ] ; then
+		find . -type f -name $1 -print0 | xargs -0 rm	
+	else 
+		echo "'$1' is not a valid file"
+	fi
+}
