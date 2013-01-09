@@ -1,10 +1,3 @@
-" Prep some variables for use with syntastic syntax checker
-let g:syntastic_auto_loc_list=1
-let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
-
-" Setup autotags for ctags
-" let g:easytags_cmd = '/usr/local/bin/ctags'
-
 set nocompatible
 filetype off
 
@@ -14,7 +7,8 @@ call pathogen#infect()
 
 filetype plugin indent on
 
-" My Bundles here:
+" My Bundles
+" ==================================================================
 " Original repos on github
 Bundle 'Lokaltog/vim-easymotion'				
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}		
@@ -35,14 +29,14 @@ Bundle 'vim-scripts/JavaScript-syntax'
 Bundle 'tanabe/WriteJSDocComment.vim'
 Bundle 'docunext/closetag.vim.git'
 Bundle 'majutsushi/tagbar.git'
-" Commmands: :UpdateTags -R . and :HighlightTags 
-"
+
 " Snipmate and dependencies
 " Bundle 'xolox/vim-easytags'
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "honza/snipmate-snippets"
 Bundle "garbas/vim-snipmate"
+Bundle 'ap/vim-css-color'
 
 " syntax highlighting
 Bundle "vim-pandoc/vim-pandoc"
@@ -72,8 +66,9 @@ Bundle 'noahfrederick/Hemisu'
 Bundle 'git://git.wincent.com/command-t.git'		
 
 
-" 256 color term
-set t_Co=256
+" Colors
+" ==================================================================
+set t_Co=256	" 256 colors
 
 if &t_Co > 2 || has("gui_running")
 	syntax on
@@ -88,7 +83,8 @@ if &t_Co > 2 || has("gui_running")
 	" colorscheme Clouds 
 endif
 
-" set background=dark
+" tab hi lights
+hi TabLineSel ctermbg=121 ctermfg=0	
 
 set tabstop=5 softtabstop=5 shiftwidth=5 noexpandtab
 set number
@@ -101,14 +97,14 @@ set nobackup			" Do not keep a backup file
 set noswapfile
 set history=1000		" Keep 1000 lines of command line history
 set hlsearch
+set modifiable			" to modify buffer, for search and replace, etc
 " set cc=80				" highlight column 80 for visual 
 " set paste				" format copy and paste from source
 
-" rebinding keys
-let mapleader = ","
-let g:EasyMotion_leader_key = '\'
+
 
 " Filetypes
+" ==================================================================
 au BufRead,BufNewFile *.json set filetype=javascript
 au BufRead,BufNewFile *.md set filetype=markdown
 au BufRead,BufNewFile *.scss set filetype=css
@@ -120,22 +116,43 @@ au BufRead,BufNewFile *.cshtml set filetype=html
 au BufRead,BufNewFile *.phtml set filetype=html
 au BufRead,BufNewFile *.php.dist set filetype=php
 au BufRead,BufNewFile *.md AcpDisable
-autocmd Filetype javascript setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
-autocmd Filetype css setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
-autocmd Filetype coffee setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
-autocmd Filetype json setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
-autocmd Filetype jade setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
-autocmd Filetype html setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
-autocmd Filetype phtml setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
-autocmd Filetype php setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
-autocmd Filetype ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
-autocmd FileType html,cshtml let b:closetag_html_style=1
-autocmd FileType html,cshtml source ~/.vim/bundle/closetag.vim/plugin/closetag.vim
+au Filetype javascript setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
+au Filetype css setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
+au Filetype coffee setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
+au Filetype json setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
+au Filetype jade setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
+au Filetype html setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
+au Filetype phtml setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
+au Filetype php setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
+au Filetype ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
+au FileType html,cshtml let b:closetag_html_style=1
+au FileType html,cshtml source ~/.vim/bundle/closetag.vim/plugin/closetag.vim
 
+au BufNewFile,BufRead * setlocal formatoptions+=or " show pwd in vim
+
+" set title string on screen
+" autocmd BufEnter * let &titlestring = "vim " . expand("%:t") . " " . expand("%:h")
+autocmd BufEnter * let &titlestring = "vim " . expand("%:t") . " " . expand("%:p")
+
+" auto source vimrc when I save
+if has("autocmd")
+	autocmd bufwritepost .vimrc source $MYVIMRC
+endif
+
+" auto change current dir to file that is open
+" autocmd BufEnter * silent! lcd %:p:h
+
+
+
+" folding 
+" ==================================================================
+nnoremap <Space> za
 " pandoc settings, markdown
 let g:pandoc_no_folding = 1
 
-" omni completion
+
+" Omni completion
+" ==================================================================
 filetype plugin on
 set ofu=syntaxcomplete#Complete " Enable syntax completion?
 set completeopt=longest,menuone		" Show longest match, at lest one option
@@ -143,6 +160,7 @@ inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
   \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
 " file settings
+" ==================================================================
 set ai 
 set si
 set ignorecase " case-insenstive search 
@@ -150,47 +168,21 @@ set incsearch " incremental search
 set smartcase " do smart case matching
 set showmatch " show matching brackets 
 
-" Key mappings
+" Rebind/Key mappings
+" ==================================================================
+let mapleader = ","
+let g:EasyMotion_leader_key = '\'
+
+" shortcut to edit vimrc
+nmap <leader>v :tabe $MYVIMRC<CR>
 nmap <F7> :tabprevious<CR>
 nmap <F8> :tabnext<CR>
 map <C-h> :tabprevious<CR>
 map <C-l> :tabnext<CR>
 nnoremap <D-up> :resize -5<CR>
 nnoremap <D-down> :resize +5<CR>
-nmap <F1> :NERDTreeToggle<CR>    " Ctrl+N to toggle                   
+nmap <F1> :NERDTreeToggle<CR>    
 nnoremap <F2> :set nonumber!<CR>
-
-" AutoPairs
-" let g:AutoPairs = {'{':'}'}                                                                     
-
-" PHP doc block                                                                 
-inoremap <C-K> <ESC>:call PhpDocSingle()<CR>i                                   
-nnoremap <C-K> :call PhpDocSingle()<CR>                                         
-vnoremap <C-K> :call PhpDocRange()<CR>                                          
-
-" tagbar
-let g:tagbar_usearrow = 1
-let g:tagbar_autofocus = 1
-nnoremap <leader>l :TagbarToggle<CR>
-" ctags
-" map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-" map <C-s> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
-" jump to definition 
-" map <C-j> <C-]> 
-" jump back to function call
-" map <C-b> <C-o> 
-
-" Command-T
-nmap <C-t> :CommandT<CR>
-nmap <C-f> :CommandTFlush<CR>
-
-" Command-T settings for iTerm
-if &term =~ "xterm" || &term =~ "screen"
-  let g:CommandTCancelMap     = ['<ESC>', '<C-c>']
-  let g:CommandTSelectNextMap = ['<C-n>', '<C-j>', '<ESC>OB']
-  let g:CommandTSelectPrevMap = ['<C-p>', '<C-k>', '<ESC>OA']
-endif
-
 " Aligns on equal sign
 vmap <C-a> \t=<CR>
 
@@ -211,9 +203,32 @@ nmap mm <Esc>zz
 " low
 nmap ml <Esc>zb  
 
-" comments                                                             
-au BufNewFile,BufRead * setlocal formatoptions+=or " show pwd in vim
+
+" tagbar
+let g:tagbar_usearrow = 1
+let g:tagbar_autofocus = 1
+nnoremap <leader>l :TagbarToggle<CR>
+
+" Command-T
+" ==================================================================
+nmap <C-t> :CommandT<CR>
+nmap <C-f> :CommandTFlush<CR>
+
+" Command-T settings for iTerm
+if &term =~ "xterm" || &term =~ "screen"
+  let g:CommandTCancelMap     = ['<ESC>', '<C-c>']
+  let g:CommandTSelectNextMap = ['<C-n>', '<C-j>', '<ESC>OB']
+  let g:CommandTSelectPrevMap = ['<C-p>', '<C-k>', '<ESC>OA']
+endif
+
+
+" Comments                                                             
+" ==================================================================
 au FileType javascript nnoremap <buffer> <C-c> :<C-u>call WriteJSDocComment()<CR>
+" PHP doc block                                                                 
+inoremap <C-K> <ESC>:call PhpDocSingle()<CR>i                                   
+nnoremap <C-K> :call PhpDocSingle()<CR>                                         
+vnoremap <C-K> :call PhpDocRange()<CR>                                          
 
 if &term == "screen"
     set t_ts=^[k
@@ -222,46 +237,6 @@ endif
 if &term == "screen" || &term == "xterm"
     set title
 endif
-
-" to modify buffer, for search and replace, etc
-set modifiable
-
-autocmd BufEnter * let &titlestring = "vim " . expand("%:t") . " " . expand("%:h")
-
-" auto change current dir to file that is open
-" autocmd BufEnter * silent! lcd %:p:h
-
-" tab hi lights
-hi TabLineSel ctermbg=121 ctermfg=0
-
-" folding 
-nnoremap <Space> za
-
-
-function! ShowFunc(sort)
-let gf_s = &grepformat
-let gp_s = &grepprg
-if ( &filetype == "c" || &filetype == "php" || &filetype == "python" ||
-			\ &filetype == "sh" )
-	let &grepformat='%*\k%*\sfunction%*\s%l%*\s%f %m'
-	let &grepprg = 'ctags -x --'.&filetype.'-types=f --sort='.a:sort
-elseif ( &filetype == "perl" )
-	let &grepformat='%*\k%*\ssubroutine%*\s%l%*\s%f %m'
-	let &grepprg = 'ctags -x --perl-types=s --sort='.a:sort
-elseif ( &filetype == "vim" )
-	let &grepformat='%*\k%*\sfunction%*\s%l%*\s%f %m'
-	let &grepprg = 'ctags -x --vim-types=f --language-force=vim --sort='.a:sort
-endif
-if (&readonly == 0) | update | endif
-silent! grep %
-cwindow 10
-redraw
-let &grepformat = gf_s
-let &grepprg = gp_s
-endfunc
-
-noremap <F3> <Esc>:call ShowFunc("no")<CR><Esc>
-noremap <S-F3> <Esc>:call ShowFunc("yes")<CR><Esc>
 
 " auto correct
 iab funciton function
