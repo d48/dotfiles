@@ -34,6 +34,7 @@ Bundle 'nelstrom/vim-markdown-folding'
 Bundle 'vim-scripts/JavaScript-syntax'
 Bundle 'tanabe/WriteJSDocComment.vim'
 Bundle 'docunext/closetag.vim.git'
+Bundle 'majutsushi/tagbar.git'
 " Commmands: :UpdateTags -R . and :HighlightTags 
 "
 " Snipmate and dependencies
@@ -103,6 +104,10 @@ set hlsearch
 " set cc=80				" highlight column 80 for visual 
 " set paste				" format copy and paste from source
 
+" rebinding keys
+let mapleader = ","
+let g:EasyMotion_leader_key = '\'
+
 " Filetypes
 au BufRead,BufNewFile *.json set filetype=javascript
 au BufRead,BufNewFile *.md set filetype=markdown
@@ -163,13 +168,17 @@ inoremap <C-K> <ESC>:call PhpDocSingle()<CR>i
 nnoremap <C-K> :call PhpDocSingle()<CR>                                         
 vnoremap <C-K> :call PhpDocRange()<CR>                                          
 
+" tagbar
+let g:tagbar_usearrow = 1
+let g:tagbar_autofocus = 1
+nnoremap <leader>l :TagbarToggle<CR>
 " ctags
-map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-map <C-s> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+" map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+" map <C-s> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 " jump to definition 
-map <C-j> <C-]> 
+" map <C-j> <C-]> 
 " jump back to function call
-map <C-b> <C-o> 
+" map <C-b> <C-o> 
 
 " Command-T
 nmap <C-t> :CommandT<CR>
@@ -189,7 +198,7 @@ vmap <C-a> \t=<CR>
 vmap <C-t> \t<bar><CR>
 
 " clear search highlight
-nmap <silent> ,, :noh<CR>
+nmap <leader>/ :noh<CR>
 
 " copy and paste current line
 nmap <C-p> <Esc>yyp
