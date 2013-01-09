@@ -1,10 +1,9 @@
 " Prep some variables for use with syntastic syntax checker
 let g:syntastic_auto_loc_list=1
 let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
-let g:syntastic_jshint_config = '~/.jshintrc'
 
 " Setup autotags for ctags
-let g:easytags_cmd = '/usr/local/bin/ctags'
+" let g:easytags_cmd = '/usr/local/bin/ctags'
 
 set nocompatible
 filetype off
@@ -22,7 +21,7 @@ Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'vim-scripts/tComment'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'walm/jshint.vim'
+" Bundle 'walm/jshint.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-rails'
 Bundle 'cschlueter/vim-clouds'
@@ -33,10 +32,12 @@ Bundle 'mattn/zencoding-vim'
 Bundle 'benmills/vimux'
 Bundle 'nelstrom/vim-markdown-folding'
 Bundle 'vim-scripts/JavaScript-syntax'
+Bundle 'tanabe/WriteJSDocComment.vim'
+Bundle 'docunext/closetag.vim.git'
 " Commmands: :UpdateTags -R . and :HighlightTags 
 "
 " Snipmate and dependencies
-Bundle 'xolox/vim-easytags'
+" Bundle 'xolox/vim-easytags'
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "honza/snipmate-snippets"
@@ -57,13 +58,13 @@ Bundle 'ratazzi/blackboard.vim'
 
 " vim-scripts repos
 Bundle 'vim-scripts/AutoComplPop'
+Bundle 'vim-scripts/Lucius'
 Bundle 'vim-scripts/PDV--phpDocumentor-for-Vim'
 Bundle 'vim-scripts/Rename'
 
 Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'rails.vim'
-Bundle 'Lucius'
 Bundle 'noahfrederick/Hemisu'
 
 " non-github repos
@@ -114,7 +115,7 @@ au BufRead,BufNewFile *.cshtml set filetype=html
 au BufRead,BufNewFile *.phtml set filetype=html
 au BufRead,BufNewFile *.php.dist set filetype=php
 au BufRead,BufNewFile *.md AcpDisable
-autocmd Filetype javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
+autocmd Filetype javascript setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
 autocmd Filetype css setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
 autocmd Filetype coffee setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
 autocmd Filetype json setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
@@ -123,6 +124,8 @@ autocmd Filetype html setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
 autocmd Filetype phtml setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
 autocmd Filetype php setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
 autocmd Filetype ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
+autocmd FileType html,cshtml let b:closetag_html_style=1
+autocmd FileType html,cshtml source ~/.vim/bundle/closetag.vim/plugin/closetag.vim
 
 " pandoc settings, markdown
 let g:pandoc_no_folding = 1
@@ -199,8 +202,9 @@ nmap mm <Esc>zz
 " low
 nmap ml <Esc>zb  
 
-" aligning comments                                                             
-autocmd BufNewFile,BufRead * setlocal formatoptions+=or " show pwd in vim
+" comments                                                             
+au BufNewFile,BufRead * setlocal formatoptions+=or " show pwd in vim
+au FileType javascript nnoremap <buffer> <C-c> :<C-u>call WriteJSDocComment()<CR>
 
 if &term == "screen"
     set t_ts=^[k
