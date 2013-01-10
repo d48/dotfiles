@@ -1,12 +1,17 @@
 #!/bin/bash 
 
-supervisor -w app.js,routes,models -e 'js|jade|styl' app.js &
-THIS_PID=$!
+THIS_PID=$$
+# start mongodb
+mongod --dbpath ./data/db/ &
+
+# monitor node js app and atuo restart on directory/file changes
+supervisor -w app.js,routes,models -e 'js' app.js &
 
 echo "Run this to kill the script"
-echo "kill -9 $THIS_PID"
+echo "kill -TERM -$THIS_PID"
 echo ""
 
-echo "kill -9 $THIS_PID" | pbcopy
+echo "kill -TERM -$THIS_PID" | pbcopy
 
+# init guard file for livereload
 guard
