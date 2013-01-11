@@ -1,5 +1,5 @@
 [github]
-	user = design48
+	user = d48
 [user]
 	name = Ryan Regalado
 	email = ryan@design48.net
@@ -21,6 +21,8 @@
 	lolg = !"git log --format='%Cgreen%h %Creset%C(cyan)%an%Creset%C(magenta)%d%Creset - %s' --graph"
 	myinit = !sh -c 'git init && touch .gitignore && git add . && git c -m \"initial commit\" && cp ~/.git/post-commit .git/hooks/' -
 	p = pull --prune
+	unstage = reset HEAD			# remove files from index (tracking)
+	uncommit = reset --soft HEAD^		# go back before last commit, with files in uncommitted state
 	si = submodule init
 	su = submodule update --recursive
 	sui = submodule update --init --recursive
