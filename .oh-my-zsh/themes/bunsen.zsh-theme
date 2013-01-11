@@ -12,7 +12,7 @@ function my_date {
 }
 
 PROMPT='
-<%{$fg_bold[cyan]%}%n%{$reset_color%}> %{$fg[cyan]%}$(my_date)%{$reset_color%} in %{$fg_bold[yellow]%}${PWD/#$HOME/~}/ %{$reset_color%}$(git_prompt_info)$(virtualenv_info)%(?,,%{${fg_bold[blue]}%}[%?]%{$reset_color%} )
+<%{$fg_bold[cyan]%}%n%{$reset_color%}> %{$fg_bold[cyan]%}$(my_date)%{$reset_color%} in %{$fg_bold[yellow]%}${PWD/#$HOME/~}/ %{$reset_color%}$(git_prompt_info)$(virtualenv_info)%(?,,%{${fg_bold[blue]}%}[%?]%{$reset_color%} )
 %{$fg_bold[cyan]%} ➣ %{$reset_color%} '
 
 ZSH_THEME_GIT_PROMPT_PREFIX="on %{$fg[magenta]%}"
