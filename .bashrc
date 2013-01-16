@@ -32,7 +32,7 @@ EMW="\[\033[1;37m\]"
 
 
 # Environment setup
-export PS1='\n<\[\033[1;36m\]\u\[\033[0m\]>\[\033[1;36m\]\@\[\033[0m\] '"${EMY}"'`git current` '"${White}"'->\W/ ' 
+# export PS1='\n<\[\033[1;36m\]\u\[\033[0m\]>\[\033[1;36m\]\@\[\033[0m\] '"${EMY}"'`git current` '"${White}"'->\W/ ' 
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
@@ -41,7 +41,7 @@ set autoindent
 set mouse=a			# cursor where mouse clicks
 set clipboard=unnamed	# to system buffer
 set nobackup			 
-set nowritebackup		# Don't write backup files
+set nowritebackup		# Dont write backup files
 set hlsearch			# highlight search word
 
 # Path setup
@@ -64,6 +64,8 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
+export MYVIMRC=~/.vimrc
+
 # Less Colors for Man Pages
 # export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
 # export LESS_TERMCAP_md=$'\E[01;38;5;74m'  # begin bold
@@ -78,8 +80,8 @@ alias man='man -P less'
 # set vi mode in bash
 set -o vi
 
-# auto-complete history with up and down arrow. type some text [UP]
-bind '"\e[A": history-search-backward'
-bind '"\e[B": history-search-forward'
+# bash auto-complete history with up and down arrow. type some text [UP]
+# bind '"\e[A": history-search-backward'
+# bind '"\e[B": history-search-forward'
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
