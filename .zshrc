@@ -97,3 +97,4 @@ function install_powerline_precmd() {
 }
 
 install_powerline_precmd
+
