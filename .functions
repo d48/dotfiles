@@ -1,3 +1,7 @@
+# cp a backup file passed in and append suffix of .bak
+function bu() {
+	cp "$1"{,.bak}
+}
 # outputs file passed through in pretty json format
 function js() {
 	cat "$1" | json
@@ -32,17 +36,17 @@ function server() {
 }
 
 # git log with per-commit cmd-clickable GitHub URLs (iTerm)
-function gf() {
-  local remote="$(git remote -v | awk '/^origin.*\(push\)$/ {print $2}')"
-  [[ "$remote" ]] || return
-  local user_repo="$(echo "$remote" | perl -pe 's/.*://;s/\.git$//')"
-  git log $* --name-status --color | awk "$(cat <<AWK
-    /^.*commit [0-9a-f]{40}/ {sha=substr(\$2,1,7)}
-    /^[MA]\t/ {printf "%s\thttps://github.com/$user_repo/blob/%s/%s\n", \$1, sha, \$2; next}
-    /.*/ {print \$0}
-AWK
-  )" | less -F
-}
+# function gf() {
+#   local remote="$(git remote -v | awk '/^origin.*\(push\)$/ {print $2}')"
+#   [[ "$remote" ]] || return
+#   local user_repo="$(echo "$remote" | perl -pe 's/.*://;s/\.git$//')"
+#   git log $* --name-status --color | awk "$(cat <<AWK
+#     /^.*commit [0-9a-f]{40}/ {sha=substr(\$2,1,7)}
+#     /^[MA]\t/ {printf "%s\thttps://github.com/$user_repo/blob/%s/%s\n", \$1, sha, \$2; next}
+#     /.*/ {print \$0}
+# AWK
+#   )" | less -F
+# }
 
 
 # Copy w/ progress
@@ -131,24 +135,6 @@ function gitshots() {
 }
 
 # get definition of a word
-function def() {
+function define() {
    source ~/scripts/dict.sh	
-}
-
-# remove all .DS_Store files from current directory, recursively
-function rmds() {
-	find . -type f -name .DS_Store -print0 | xargs -0 rm	
-}
-
-# remove all files of specific name passed in argument
-function rmf() {
-	if [ -z $1 ] ; then
-		echo "No argument provided"
-	fi 
-
-	if [ -f $1 ] ; then
-		find . -type f -name $1 -print0 | xargs -0 rm	
-	else 
-		echo "'$1' is not a valid file"
-	fi
 }
