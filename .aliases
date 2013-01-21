@@ -28,6 +28,7 @@ alias ctags="`brew --prefix`/bin/ctags"
 alias g="git"
 alias v="vim"
 alias td="todo"
+alias tmux="TERM=xterm-256color tmux"
 alias muxi="tmuxifier"
 # alias js="cat $1 | json"
 
