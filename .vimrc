@@ -137,9 +137,9 @@ au BufNewFile,BufRead * setlocal formatoptions+=or " show pwd in vim
 autocmd BufEnter * let &titlestring = "vim " . expand("%:t") . " " . expand("%:p")
 
 " auto source vimrc when I save
-if has("autocmd")
+" if has("autocmd")
 	" autocmd bufwritepost .vimrc source $MYVIMRC
-endif
+" endif
 
 " auto change current dir to file that is open
 " autocmd BufEnter * silent! lcd %:p:h
@@ -292,6 +292,7 @@ function! NumberToggle()
 		set number 
 	else 
 		set relativenumber
+		set ignorecase
 	endif
 endfunc
 
