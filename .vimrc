@@ -173,7 +173,7 @@ set showmatch " show matching brackets
 
 " Whitespace
 " ==================================================================
-set nowrap                      " don't wrap lines
+" set nowrap                      " don't wrap lines
 set backspace=indent,eol,start  " backspace through everything in insert mode
 
 
