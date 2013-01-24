@@ -1,4 +1,4 @@
-set nocompatible
+se nocompatible
 filetype off
 
 set rtp+=~/.vim/vundle.git/
@@ -10,12 +10,13 @@ filetype plugin indent on
 " My Bundles
 " ==================================================================
 " Original repos on github
+Bundle 'gmarik/vundle'
 Bundle 'Lokaltog/vim-easymotion'				
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}		
 Bundle 'vim-scripts/tComment'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kchmck/vim-coffee-script'
-" Bundle 'walm/jshint.vim'
+Bundle 'walm/jshint.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-rails'
 Bundle 'cschlueter/vim-clouds'
@@ -26,14 +27,17 @@ Bundle 'mattn/zencoding-vim'
 Bundle 'benmills/vimux'
 Bundle 'nelstrom/vim-markdown-folding'
 Bundle 'vim-scripts/JavaScript-syntax'
-Bundle 'tanabe/WriteJSDocComment.vim'
+Bundle 'd48/WriteJSDocComment.vim'
 Bundle 'docunext/closetag.vim.git'
 Bundle 'majutsushi/tagbar.git'
+" for previwing md files in browser
+Bundle "greyblake/vim-preview"
 Bundle 'kien/ctrlp.vim'
-Bundle 'd48/xterm-color-table.vim'
+Bundle 'milkbikis/powerline-bash'
+Bundle 'tpope/vim-liquid'
+Bundle 'Lokaltog/vim-powerline'
 
 " Snipmate and dependencies
-" Bundle 'xolox/vim-easytags'
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "honza/snipmate-snippets"
@@ -52,6 +56,7 @@ Bundle 'tomasr/molokai'
 Bundle 'vim-scripts/billw.vim'
 Bundle 'nelstrom/vim-blackboard'
 Bundle 'ratazzi/blackboard.vim'
+Bundle 'oguzbilgic/sexy-railscasts-theme'
 
 " vim-scripts repos
 Bundle 'vim-scripts/AutoComplPop'
@@ -80,17 +85,16 @@ if &t_Co > 2 || has("gui_running")
 	" colorscheme molokai 
 	" colorscheme blackboard
 	colorscheme ratazzi 
+	" colorscheme sexy-railscasts
 	" colorscheme billw 
 	" colorscheme Twilight 
 	" colorscheme Clouds 
 endif
 
-" tab hi lights
-hi TabLineSel ctermbg=154 ctermfg=black	
+" tab hi lights. Rossi color chartreuse for bg
+hi TabLineSel ctermbg=154 ctermfg=240	
 
 set tabstop=5 softtabstop=5 shiftwidth=5 noexpandtab
-set number
-
 set clipboard=unnamed	" Copy buffer to system clipboard
 set mouse=r			
 set mousefocus			" Follow mouse focus
@@ -116,10 +120,12 @@ au BufRead,BufNewFile *.styl set filetype=css
 au BufRead,BufNewFile *.jade set filetype=html
 au BufRead,BufNewFile *.cshtml set filetype=html
 au BufRead,BufNewFile *.phtml set filetype=html
+au BufRead,BufNewFile *.zsh-theme set filetype=conf
 au BufRead,BufNewFile *.php.dist set filetype=php
 au BufRead,BufNewFile *.md AcpDisable
 au Filetype javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
 au Filetype css setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
+au Filetype markdown setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
 au Filetype coffee setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
 au Filetype json setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
 au Filetype jade setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
@@ -134,12 +140,15 @@ au BufNewFile,BufRead * setlocal formatoptions+=or " show pwd in vim
 
 " set title string on screen
 " autocmd BufEnter * let &titlestring = "vim " . expand("%:t") . " " . expand("%:h")
-autocmd BufEnter * let &titlestring = "vim " . expand("%:t") . " " . expand("%:p")
+" autocmd BufEnter * let &titlestring = "vim " . expand("%:t") . " " . expand("%:p")
 
 " auto source vimrc when I save
 " if has("autocmd")
 	" autocmd bufwritepost .vimrc source $MYVIMRC
 " endif
+
+" force setting line number
+
 
 " auto change current dir to file that is open
 " autocmd BufEnter * silent! lcd %:p:h
@@ -153,13 +162,17 @@ nnoremap <Space> za
 let g:pandoc_no_folding = 1
 
 
-" Omni completion
+" Omni/auto completion / neocomplcache
 " ==================================================================
 filetype plugin on
 set ofu=syntaxcomplete#Complete " Enable syntax completion?
 set completeopt=longest,menuone		" Show longest match, at lest one option
-inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
-  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
+" Tab completion
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+
 
 " file settings
 " ==================================================================
@@ -173,15 +186,20 @@ set showmatch " show matching brackets
 
 " Whitespace
 " ==================================================================
-" set nowrap                      " don't wrap lines
+set nowrap                      " don't wrap lines
 set backspace=indent,eol,start  " backspace through everything in insert mode
 
 
 " Rebind/Key mappings
 " ==================================================================
-" leaders is SPACE
 let mapleader = " "
 let g:EasyMotion_leader_key = '\'
+
+" JSHint
+nnoremap <C-j> :JSHint<CR>
+
+" AutoPairs
+let g:AutoPairs = {'{':'}'}  
 
 nnoremap <C-n> :call NumberToggle()<CR>
 
@@ -193,9 +211,6 @@ nmap <leader>ad :AcpDisable<CR>
 nnoremap <silent> <Leader>t :CtrlP<cr>
 nnoremap <silent> <leader>T :ClearCtrlPCache<cr>\|:CtrlP<cr>
 
-
-
-
 " shortcut to edit vimrc
 nmap <leader>v :tabe $MYVIMRC<CR>
 nmap <F7> :tabprevious<CR>
@@ -204,23 +219,20 @@ map <C-h> :tabprevious<CR>
 map <C-l> :tabnext<CR>
 nnoremap <D-up> :resize -5<CR>
 nnoremap <D-down> :resize +5<CR>
-nmap <F1> :NERDTreeToggle<CR>    
+" nmap <F1> :NERDTreeToggle<CR>    
+nmap <leader>n :NERDTreeToggle<CR>    
 nnoremap <F2> :set nonumber!<CR>
 " Aligns on equal sign
-vmap <C-a> \t=<CR>
+vmap <C-a> <leader>t=<CR>
 
 " Aligns on pipe = <bar>, for markdown tables
-vmap <C-t> \t<bar><CR>
+vmap <C-t> <leader>t<bar><CR>
 
 " clear search highlight
 nmap <leader>/ :noh<CR>
 
 " copy and paste current line
 nmap <leader>p <Esc>yyp
-
-" Save, close
-nmap <D-s> <Esc>:w<CR>
-nmap <D-q> <Esc>:q<CR>
 
 " aligning functions to view
 " top
@@ -260,7 +272,7 @@ if &term =~ "xterm" || &term =~ "screen"
   let g:CommandTSelectPrevMap = ['<C-p>', '<C-k>', '<ESC>OA']
 endif
 
-" Listing
+"" Listing
 set wildignore+=*/tmp/*,*.so,*.swp,*/node_modules/*
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
@@ -295,5 +307,9 @@ function! NumberToggle()
 		set ignorecase
 	endif
 endfunc
+
+" force setting line numbers
+set nonumber
+set number
 
 
