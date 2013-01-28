@@ -1,7 +1,7 @@
 se nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 call pathogen#infect()
 
@@ -16,7 +16,7 @@ Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'vim-scripts/tComment'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'walm/jshint.vim'
+" Bundle 'walm/jshint.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-rails'
 Bundle 'cschlueter/vim-clouds'
@@ -36,6 +36,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'milkbikis/powerline-bash'
 Bundle 'tpope/vim-liquid'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'd48/oh-my-zsh-powerline-theme'
 
 " Snipmate and dependencies
 Bundle "MarcWeber/vim-addon-mw-utils"
@@ -57,6 +58,7 @@ Bundle 'vim-scripts/billw.vim'
 Bundle 'nelstrom/vim-blackboard'
 Bundle 'ratazzi/blackboard.vim'
 Bundle 'oguzbilgic/sexy-railscasts-theme'
+Bundle 'altercation/vim-colors-solarized'
 
 " vim-scripts repos
 Bundle 'vim-scripts/AutoComplPop'
@@ -125,7 +127,6 @@ au BufRead,BufNewFile *.php.dist set filetype=php
 au BufRead,BufNewFile *.md AcpDisable
 au Filetype javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
 au Filetype css setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
-au Filetype markdown setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
 au Filetype coffee setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
 au Filetype json setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
 au Filetype jade setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
@@ -133,21 +134,15 @@ au Filetype html setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
 au Filetype phtml setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
 au Filetype php setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
 au Filetype ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
-au FileType html,cshtml let b:closetag_html_style=1
+" au FileType html,cshtml let b:closetag_html_style=1
+let b:closetag_html_style=1
 au FileType html,cshtml source ~/.vim/bundle/closetag.vim/plugin/closetag.vim
 
 au BufNewFile,BufRead * setlocal formatoptions+=or " show pwd in vim
 
 " set title string on screen
 " autocmd BufEnter * let &titlestring = "vim " . expand("%:t") . " " . expand("%:h")
-" autocmd BufEnter * let &titlestring = "vim " . expand("%:t") . " " . expand("%:p")
-
-" auto source vimrc when I save
-" if has("autocmd")
-	" autocmd bufwritepost .vimrc source $MYVIMRC
-" endif
-
-" force setting line number
+autocmd BufEnter * let &titlestring = "vim " . expand("%:t") . " " . expand("%:p")
 
 
 " auto change current dir to file that is open
@@ -194,12 +189,6 @@ set backspace=indent,eol,start  " backspace through everything in insert mode
 " ==================================================================
 let mapleader = " "
 let g:EasyMotion_leader_key = '\'
-
-" JSHint
-nnoremap <C-j> :JSHint<CR>
-
-" AutoPairs
-let g:AutoPairs = {'{':'}'}  
 
 nnoremap <C-n> :call NumberToggle()<CR>
 
@@ -273,7 +262,7 @@ if &term =~ "xterm" || &term =~ "screen"
 endif
 
 "" Listing
-set wildignore+=*/tmp/*,*.so,*.swp,*/node_modules/*
+set wildignore+=*/tmp/*,*.so,*.swp
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
 
