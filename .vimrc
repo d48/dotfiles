@@ -86,12 +86,19 @@ if &t_Co > 2 || has("gui_running")
 	" set background=dark
 	" colorscheme molokai 
 	" colorscheme blackboard
-	colorscheme ratazzi 
+	" colorscheme ratazzi 
+	colorscheme solarized 
 	" colorscheme sexy-railscasts
 	" colorscheme billw 
 	" colorscheme Twilight 
 	" colorscheme Clouds 
 endif
+
+" for solarized color scheme
+let g:solarized_termcolors=256
+syntax enable 
+set background=dark
+
 
 " tab hi lights. Rossi color chartreuse for bg
 hi TabLineSel ctermbg=154 ctermfg=240	
