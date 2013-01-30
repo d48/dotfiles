@@ -21,6 +21,7 @@
 	lolg = !"git log --format='%Cgreen%h %Creset%C(cyan)%an%Creset%C(magenta)%d%Creset - %s' --graph"
 	myinit = !sh -c 'git init && touch .gitignore && git add . && git c -m \"initial commit\" && cp ~/.git/post-commit .git/hooks/' -
 	p = pull --prune
+	myreset = clean -f -d
 	unstage = reset HEAD			# remove files from index (tracking)
 	uncommit = reset --soft HEAD^		# go back before last commit, with files in uncommitted state
 	si = submodule init
