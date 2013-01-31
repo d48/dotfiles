@@ -132,3 +132,6 @@ alias launch="~/scripts/launch-app.sh"
 alias stoplaunch="~/scripts/stop-launch.sh"
 alias buildblog="~/scripts/buildblog.sh"
 alias todo='./bin/todo'
+
+# cli echoed
+alias bldev64='/Volumes/CRyanOnVM/Development6.4/BL/Web/FCS/Desktop/App'
