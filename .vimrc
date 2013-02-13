@@ -1,7 +1,8 @@
 se nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/vundle
+
+set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 call pathogen#infect()
 
@@ -16,7 +17,7 @@ Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'vim-scripts/tComment'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kchmck/vim-coffee-script'
-" Bundle 'walm/jshint.vim'
+Bundle 'walm/jshint.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-rails'
 Bundle 'cschlueter/vim-clouds'
@@ -36,7 +37,6 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'milkbikis/powerline-bash'
 Bundle 'tpope/vim-liquid'
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'd48/oh-my-zsh-powerline-theme'
 
 " Snipmate and dependencies
 Bundle "MarcWeber/vim-addon-mw-utils"
@@ -58,7 +58,6 @@ Bundle 'vim-scripts/billw.vim'
 Bundle 'nelstrom/vim-blackboard'
 Bundle 'ratazzi/blackboard.vim'
 Bundle 'oguzbilgic/sexy-railscasts-theme'
-Bundle 'altercation/vim-colors-solarized'
 
 " vim-scripts repos
 Bundle 'vim-scripts/AutoComplPop'
@@ -86,19 +85,12 @@ if &t_Co > 2 || has("gui_running")
 	" set background=dark
 	" colorscheme molokai 
 	" colorscheme blackboard
-	" colorscheme ratazzi 
-	colorscheme solarized 
+	colorscheme ratazzi 
 	" colorscheme sexy-railscasts
 	" colorscheme billw 
 	" colorscheme Twilight 
 	" colorscheme Clouds 
 endif
-
-" for solarized color scheme
-let g:solarized_termcolors=256
-syntax enable 
-set background=dark
-
 
 " tab hi lights. Rossi color chartreuse for bg
 hi TabLineSel ctermbg=154 ctermfg=240	
@@ -134,6 +126,7 @@ au BufRead,BufNewFile *.php.dist set filetype=php
 au BufRead,BufNewFile *.md AcpDisable
 au Filetype javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
 au Filetype css setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
+au Filetype markdown setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
 au Filetype coffee setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
 au Filetype json setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
 au Filetype jade setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
@@ -141,15 +134,20 @@ au Filetype html setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
 au Filetype phtml setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
 au Filetype php setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
 au Filetype ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
-" au FileType html,cshtml let b:closetag_html_style=1
-let b:closetag_html_style=1
+au FileType html,cshtml let b:closetag_html_style=1
 au FileType html,cshtml source ~/.vim/bundle/closetag.vim/plugin/closetag.vim
 
 au BufNewFile,BufRead * setlocal formatoptions+=or " show pwd in vim
 
 " set title string on screen
 " autocmd BufEnter * let &titlestring = "vim " . expand("%:t") . " " . expand("%:h")
-autocmd BufEnter * let &titlestring = "vim " . expand("%:t") . " " . expand("%:p")
+
+" auto source vimrc when I save
+" if has("autocmd")
+	" autocmd bufwritepost .vimrc source $MYVIMRC
+" endif
+
+" force setting line number
 
 
 " auto change current dir to file that is open
@@ -172,8 +170,8 @@ set completeopt=longest,menuone		" Show longest match, at lest one option
 
 " Tab completion
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+" autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 
 
 " file settings
@@ -196,8 +194,16 @@ set backspace=indent,eol,start  " backspace through everything in insert mode
 " ==================================================================
 let mapleader = " "
 let g:EasyMotion_leader_key = '\'
+let g:multichange_mapping = '_m'
+nnoremap <Tab> <Esc>
 
-nnoremap <C-n> :call NumberToggle()<CR>
+" JSHint
+nnoremap <C-j> :JSHint<CR>
+
+" AutoPairs
+let g:AutoPairs = {'{':'}'}  
+
+" nnoremap <C-n> :call NumberToggle()<CR>
 
 " toggle autocomplete
 nmap <leader>ae :AcpEnable<CR>
@@ -226,6 +232,9 @@ vmap <C-t> <leader>t<bar><CR>
 
 " clear search highlight
 nmap <leader>/ :noh<CR>
+
+" comment current line
+nmap <C-g> <Esc>gcc
 
 " copy and paste current line
 nmap <leader>p <Esc>yyp
@@ -269,7 +278,7 @@ if &term =~ "xterm" || &term =~ "screen"
 endif
 
 "" Listing
-set wildignore+=*/tmp/*,*.so,*.swp
+set wildignore+=*/tmp/*,*.so,*.swp,*/node_modules/*
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
 
@@ -307,5 +316,5 @@ endfunc
 " force setting line numbers
 set nonumber
 set number
-
+set laststatus=2
 
