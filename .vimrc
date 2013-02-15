@@ -85,10 +85,10 @@ if &t_Co > 2 || has("gui_running")
 	" set background=dark
 	" colorscheme molokai 
 	" colorscheme blackboard
-	colorscheme ratazzi 
+	" colorscheme ratazzi 
 	" colorscheme sexy-railscasts
 	" colorscheme billw 
-	" colorscheme Twilight 
+	colorscheme Twilight 
 	" colorscheme Clouds 
 endif
 
