@@ -1,3 +1,8 @@
+# cp a backup file passed in and append suffix of .bak
+function bu() {
+	cp "$1"{,.bak}
+}
+
 # outputs file passed through in pretty json format
 function js() {
 	cat "$1" | json
