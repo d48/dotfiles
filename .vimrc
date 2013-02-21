@@ -2,7 +2,7 @@ se nocompatible
 filetype off
 
 
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 call pathogen#infect()
 
@@ -85,10 +85,10 @@ if &t_Co > 2 || has("gui_running")
 	" set background=dark
 	" colorscheme molokai 
 	" colorscheme blackboard
-	" colorscheme ratazzi 
+	colorscheme ratazzi 
 	" colorscheme sexy-railscasts
 	" colorscheme billw 
-	colorscheme Twilight 
+	" colorscheme Twilight 
 	" colorscheme Clouds 
 endif
 
