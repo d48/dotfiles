@@ -125,6 +125,7 @@ alias glog="git lolg"
 alias glolg="git lolg"
 alias gs="git status;git stash list"
 alias gcam="git commit -am"
+alias push="git push"
 
 # application 
 # node app launcher
@@ -132,6 +133,5 @@ alias launch="~/scripts/launch-app.sh"
 alias stoplaunch="~/scripts/stop-launch.sh"
 alias buildblog="~/scripts/buildblog.sh"
 alias todo='./bin/todo'
-
-# cli echoed
+alias bt='bit shorten'
 alias bldev64='/Volumes/CRyanOnVM/Development6.4/BL/Web/FCS/Desktop/App'
