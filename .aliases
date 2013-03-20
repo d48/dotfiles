@@ -78,6 +78,7 @@ alias ubl="cd ~/Dropbox/Dev/urban-body-laser/"
 alias bl="cd ~/Dropbox/Development-BL/BL"
 # alias bldev="cd ~/Dropbox/Development-BL/BL/Web/FCS/Desktop/App"
 alias bldev="cd /Volumes/CRyanOnVM/Development/BL/Web/FCS/Desktop/App"
+alias bltest="cd /Volumes/CRyanOnVM/Development/BL/Web/FCS/Desktop/App/assets/global/test"
 
 # utilities
 alias size="du -sch"
@@ -135,3 +136,4 @@ alias buildblog="~/scripts/buildblog.sh"
 alias todo='./bin/todo'
 alias bt='bit shorten'
 alias bldev64='/Volumes/CRyanOnVM/Development6.4/BL/Web/FCS/Desktop/App'
+alias jas='./node_modules/jasmine-node/bin/jasmine-node'

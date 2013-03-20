@@ -41,7 +41,7 @@ Bundle 'Lokaltog/vim-powerline'
 " Snipmate and dependencies
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
-Bundle "honza/snipmate-snippets"
+Bundle "d48/snipmate-snippets"
 Bundle "garbas/vim-snipmate"
 Bundle 'ap/vim-css-color'
 
@@ -121,6 +121,7 @@ au BufRead,BufNewFile *.styl set filetype=css
 au BufRead,BufNewFile *.jade set filetype=html
 au BufRead,BufNewFile *.cshtml set filetype=html
 au BufRead,BufNewFile *.phtml set filetype=html
+au BufRead,BufNewFile *.aspx set filetype=html
 au BufRead,BufNewFile *.zsh-theme set filetype=conf
 au BufRead,BufNewFile *.php.dist set filetype=php
 au BufRead,BufNewFile *.md AcpDisable
@@ -203,7 +204,7 @@ nnoremap <C-j> :JSHint<CR>
 " AutoPairs
 let g:AutoPairs = {'{':'}'}  
 
-" nnoremap <C-n> :call NumberToggle()<CR>
+nnoremap <C-n> :call NumberToggle()<CR>
 
 " toggle autocomplete
 nmap <leader>ae :AcpEnable<CR>
