@@ -65,3 +65,6 @@ bindkey '^S' history-incremental-search-forward
 bindkey "^P" history-search-backward 
 bindkey "^N" history-search-forward
 
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
