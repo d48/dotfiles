@@ -50,6 +50,7 @@ Bundle "vim-pandoc/vim-pandoc"
 Bundle 'vim-scripts/jade.vim'
 
 " colorschemes
+Bundle 'vim-scripts/ScrollColors'
 Bundle 'wgibbs/vim-irblack'
 Bundle 'vim-scripts/tir_black'
 Bundle 'matthewtodd/vim-twilight'
@@ -83,9 +84,10 @@ if &t_Co > 2 || has("gui_running")
 	" colorscheme hemisu
 	" colorscheme lucius 
 	" set background=dark
-	" colorscheme molokai 
+	colorscheme molokai 
 	" colorscheme blackboard
-	colorscheme ratazzi 
+	" colorscheme ratazzi 
+	" colorscheme tir_black 
 	" colorscheme sexy-railscasts
 	" colorscheme billw 
 	" colorscheme Twilight 
@@ -187,7 +189,7 @@ set showmatch " show matching brackets
 
 " Whitespace
 " ==================================================================
-set nowrap                      " don't wrap lines
+" set nowrap                      " don't wrap lines
 set backspace=indent,eol,start  " backspace through everything in insert mode
 
 
