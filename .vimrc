@@ -97,7 +97,7 @@ endif
 " tab hi lights. Rossi color chartreuse for bg
 hi TabLineSel ctermbg=154 ctermfg=240	
 
-set tabstop=5 softtabstop=5 shiftwidth=5 noexpandtab
+set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
 set clipboard=unnamed	" Copy buffer to system clipboard
 set mouse=r			
 set mousefocus			" Follow mouse focus
@@ -127,16 +127,16 @@ au BufRead,BufNewFile *.aspx set filetype=html
 au BufRead,BufNewFile *.zsh-theme set filetype=conf
 au BufRead,BufNewFile *.php.dist set filetype=php
 au BufRead,BufNewFile *.md AcpDisable
-au Filetype javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
-au Filetype css setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
-au Filetype markdown setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
-au Filetype coffee setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
+au Filetype javascript setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
+au Filetype css setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
+au Filetype markdown setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
+au Filetype coffee setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
 au Filetype json setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
 au Filetype jade setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
 au Filetype html setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
 au Filetype phtml setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
 au Filetype php setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
-au Filetype ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
+au Filetype ruby setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
 au FileType html,cshtml let b:closetag_html_style=1
 au FileType html,cshtml source ~/.vim/bundle/closetag.vim/plugin/closetag.vim
 
@@ -189,7 +189,7 @@ set showmatch " show matching brackets
 
 " Whitespace
 " ==================================================================
-" set nowrap                      " don't wrap lines
+set nowrap                      " don't wrap lines
 set backspace=indent,eol,start  " backspace through everything in insert mode
 
 
