@@ -41,9 +41,10 @@ Bundle 'Lokaltog/vim-powerline'
 " Snipmate and dependencies
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
-Bundle "d48/snipmate-snippets"
 Bundle "garbas/vim-snipmate"
 Bundle 'ap/vim-css-color'
+Bundle 'git://github.com/d48/snipmate-snippets.git'
+		
 
 " syntax highlighting
 Bundle "vim-pandoc/vim-pandoc"
