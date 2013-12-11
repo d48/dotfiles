@@ -1,3 +1,15 @@
+# JSDoc Local Build Function
+# Changes to jsdoc directory, recursive force deletes current output
+function jdoc { 
+	cd ~/jsdoc-master; rm -rf out/*; ./jsdoc -r --verbose /Volumes/CRyanOnVM/Development/BL/Web/FCS/Desktop/App/assets/global/ -t templates/granite; 
+}
+
+# JSDoc Debug Function
+# Changes to jsdoc directory, recursive force deletes current output, turns on debug mode
+function jdocdebug { 
+	cd ~/jsdoc-master; rm -rf out/*; ./jsdoc --debug -r --verbose /Volumes/CRyanOnVM/Development/BL/Web/FCS/Desktop/App/assets/global/ -t templates/granite; 
+}
+
 # Create html file with default script tags for local testing 
 # file named from parameter
 function hj() {

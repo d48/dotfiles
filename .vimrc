@@ -116,6 +116,7 @@ set modifiable			" to modify buffer, for search and replace, etc
 " Filetypes
 " ==================================================================
 au BufRead,BufNewFile *.json set filetype=javascript
+au BufRead,BufNewFile *.json,*.js,*.html,*.coffee setlocal foldmethod=indent
 au BufRead,BufNewFile *.md set filetype=markdown
 au BufRead,BufNewFile *.scss set filetype=css
 au BufRead,BufNewFile *.sass set filetype=css
@@ -164,7 +165,6 @@ au BufNewFile,BufRead * setlocal formatoptions+=or " show pwd in vim
 nnoremap <Space> za
 " pandoc settings, markdown
 let g:pandoc_no_folding = 1
-
 
 " Omni/auto completion / neocomplcache
 " ==================================================================
