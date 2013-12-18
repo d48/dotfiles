@@ -68,3 +68,6 @@ bindkey "^N" history-search-forward
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+# activate nvm defaults
+source ~/.nvmconf

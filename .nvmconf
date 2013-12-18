@@ -1,0 +1,3 @@
+echo "setting nvm defaults"
+nvm deactivate
+nvm use 0.10
