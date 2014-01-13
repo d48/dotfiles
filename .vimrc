@@ -33,7 +33,6 @@ Bundle 'docunext/closetag.vim.git'
 Bundle 'majutsushi/tagbar.git'
 " for previwing md files in browser
 Bundle "greyblake/vim-preview"
-Bundle 'kien/ctrlp.vim'
 Bundle 'milkbikis/powerline-bash'
 Bundle 'tpope/vim-liquid'
 Bundle 'Lokaltog/vim-powerline'
@@ -212,10 +211,6 @@ nnoremap <C-n> :call NumberToggle()<CR>
 " toggle autocomplete
 nmap <leader>ae :AcpEnable<CR>
 nmap <leader>ad :AcpDisable<CR>
-
-"" CtrlP mappings
-nnoremap <silent> <Leader>t :CtrlP<cr>
-nnoremap <silent> <leader>T :ClearCtrlPCache<cr>\|:CtrlP<cr>
 
 " shortcut to edit vimrc
 nmap <leader>v :tabe $MYVIMRC<CR>
