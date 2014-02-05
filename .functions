@@ -1,3 +1,9 @@
+# create grunt watch boilerplate sandbox for quick web tests
+function sandbox {
+	git clone git@github.com:d48/grunt-watch-boilerplate "$1"
+	cd "$1"
+	npm install && npm start
+}
 # JSDoc Local Build Function
 # Changes to jsdoc directory, recursive force deletes current output
 function jdoc { 
