@@ -196,7 +196,7 @@ set backspace=indent,eol,start  " backspace through everything in insert mode
 " Rebind/Key mappings
 " ==================================================================
 let mapleader = " "
-let g:EasyMotion_leader_key = '\'
+let g:EasyMotion_leader_key = ';'
 let g:multichange_mapping = '_m'
 nnoremap <Tab> <Esc>
 
