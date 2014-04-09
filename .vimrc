@@ -59,6 +59,7 @@ Bundle 'vim-scripts/billw.vim'
 Bundle 'nelstrom/vim-blackboard'
 Bundle 'ratazzi/blackboard.vim'
 Bundle 'oguzbilgic/sexy-railscasts-theme'
+Bundle 'cange/vim-theme-cange'
 
 " vim-scripts repos
 Bundle 'vim-scripts/AutoComplPop'
@@ -268,6 +269,7 @@ nnoremap <leader>l :TagbarToggle<CR>
 " ==================================================================
 nmap <C-t> :CommandT<CR>
 nmap <C-f> :CommandTFlush<CR>
+let g:CommandTAcceptSelectionSplitMap='<C-s>'
 
 " Command-T settings for iTerm
 if &term =~ "xterm" || &term =~ "screen"
