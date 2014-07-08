@@ -1,3 +1,7 @@
+# change to testversion in vm
+bltest() {
+	cd /Volumes/CRyanOnVM/Development"$1"/BL/Web/FCS/Desktop/App/assets/global/test
+}
 # send text message via cli 
 text() {
 	  curl http://textbelt.com/text -d number="$1" -d "message=$2"                                             

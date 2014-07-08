@@ -80,7 +80,8 @@ alias bl="cd ~/Dropbox/Development-BL/BL"
 # alias bldev="cd ~/Dropbox/Development-BL/BL/Web/FCS/Desktop/App"
 alias bldev="cd /Volumes/CRyanOnVM/Development/BL/Web/FCS/Desktop/App"
 alias bldev65="cd /Volumes/CRyanOnVM/Development6.5/BL/Web/FCS/Desktop/App"
-alias bltest="cd /Volumes/CRyanOnVM/Development/BL/Web/FCS/Desktop/App/assets/global/test"
+# alias bltest="cd /Volumes/CRyanOnVM/Development/BL/Web/FCS/Desktop/App/assets/global/test"
+alias bltest=fnbltest
 alias blassets="cd /Volumes/CRyanOnVM/Development/BL/Web/FCS/Desktop/App/assets/global"
 alias blu="cd /Volumes/Working/Home/Ryan.Regalado/BLU\ LMS/wwwroot"
 
@@ -129,7 +130,7 @@ alias gdc="git diff --cached"
 alias glog="git lolg"
 alias glolg="git lolg"
 alias gs="git status;git stash list"
-alias gcam="git commit -am"
+alias gac="git add . && git commit -m"
 alias push="git push"
 
 # application 
