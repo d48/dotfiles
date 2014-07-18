@@ -41,6 +41,7 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'rking/ag.vim'
 Bundle 'mattr555/vim-instacode'
 Bundle 'maxbrunsfeld/vim-yankstack'
+Bundle 'terryma/vim-multiple-cursors'
 
 " Snipmate and dependencies
 Bundle "MarcWeber/vim-addon-mw-utils"
