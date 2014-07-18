@@ -31,6 +31,8 @@ Bundle 'vim-scripts/JavaScript-syntax'
 Bundle 'd48/WriteJSDocComment.vim'
 Bundle 'docunext/closetag.vim.git'
 Bundle 'majutsushi/tagbar.git'
+"utilities
+Bundle 'rking/ag.vim'
 " for previwing md files in browser
 Bundle "greyblake/vim-preview"
 Bundle 'milkbikis/powerline-bash'
@@ -38,6 +40,7 @@ Bundle 'tpope/vim-liquid'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'rking/ag.vim'
 Bundle 'mattr555/vim-instacode'
+Bundle 'maxbrunsfeld/vim-yankstack'
 
 " Snipmate and dependencies
 Bundle "MarcWeber/vim-addon-mw-utils"
@@ -45,6 +48,7 @@ Bundle "tomtom/tlib_vim"
 Bundle "garbas/vim-snipmate"
 Bundle 'ap/vim-css-color'
 Bundle 'git://github.com/d48/snipmate-snippets.git'
+Bundle 'claco/jasmine.vim'
 		
 
 " syntax highlighting
@@ -125,6 +129,7 @@ set modifiable			" to modify buffer, for search and replace, etc
 " Filetypes
 " ==================================================================
 au BufRead,BufNewFile *.json set filetype=javascript
+au BufRead,BufNewFile *.js,*.spec.js set filetype=javascript
 au BufRead,BufNewFile *.json,*.js,*.html,*.coffee setlocal foldmethod=indent
 au BufRead,BufNewFile *.md set filetype=markdown
 au BufRead,BufNewFile *.scss set filetype=css
@@ -224,6 +229,10 @@ let g:AutoPairs = {'{':'}'}
 
 nnoremap <C-n> :call NumberToggle()<CR>
 
+" yankstack 
+nmap <leader>y <Plug>yankstack_substitute_older_paste
+nmap <leader>Y <Plug>yankstack_substitute_newer_paste
+
 " toggle autocomplete
 nmap <leader>ae :AcpEnable<CR>
 nmap <leader>ad :AcpDisable<CR>
@@ -284,6 +293,7 @@ nnoremap <leader>l :TagbarToggle<CR>
 " ==================================================================
 nmap <C-t> :CommandT<CR>
 nmap <C-f> :CommandTFlush<CR>
+nmap <C-b> :CommandTBuffer<CR>
 let g:CommandTAcceptSelectionSplitMap='<C-s>'
 
 " Command-T settings for iTerm
