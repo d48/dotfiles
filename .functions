@@ -166,3 +166,10 @@ function gitshots() {
 function define() {
    source ~/scripts/dict.sh	
 }
+
+# output tmux colours
+function tmuxcolours {
+	for i in {0..255} ; do
+		printf "\x1b[38;5;${i}mcolour${i}\n"
+	done
+}

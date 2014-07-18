@@ -36,6 +36,8 @@ Bundle "greyblake/vim-preview"
 Bundle 'milkbikis/powerline-bash'
 Bundle 'tpope/vim-liquid'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'rking/ag.vim'
+Bundle 'mattr555/vim-instacode'
 
 " Snipmate and dependencies
 Bundle "MarcWeber/vim-addon-mw-utils"
@@ -60,6 +62,7 @@ Bundle 'nelstrom/vim-blackboard'
 Bundle 'ratazzi/blackboard.vim'
 Bundle 'oguzbilgic/sexy-railscasts-theme'
 Bundle 'cange/vim-theme-cange'
+Bundle 'altercation/vim-colors-solarized'
 
 " vim-scripts repos
 Bundle 'vim-scripts/AutoComplPop'
@@ -75,17 +78,22 @@ Bundle 'noahfrederick/Hemisu'
 " non-github repos
 Bundle 'git://git.wincent.com/command-t.git'		
 
+" vimux 
+Bundle 'benmills/vimux'
+
 
 " Colors
 " ==================================================================
 set t_Co=256	" 256 colors
+let g:solarized_termcolors=256
 
 if &t_Co > 2 || has("gui_running")
 	syntax on
 	" colorscheme hemisu
 	" colorscheme lucius 
-	" set background=dark
-	colorscheme molokai 
+	set background=light
+	" colorscheme molokai 
+	colorscheme solarized 
 	" colorscheme blackboard
 	" colorscheme ratazzi 
 	" colorscheme tir_black 
@@ -95,8 +103,9 @@ if &t_Co > 2 || has("gui_running")
 	" colorscheme Clouds 
 endif
 
+
 " tab hi lights. Rossi color chartreuse for bg
-hi TabLineSel ctermbg=154 ctermfg=240	
+" hi TabLineSel ctermbg=154 ctermfg=240	
 
 set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
 set clipboard=unnamed	" Copy buffer to system clipboard
@@ -201,6 +210,12 @@ let g:EasyMotion_leader_key = ';'
 let g:multichange_mapping = '_m'
 nnoremap <Tab> <Esc>
 
+" Vimux
+map <Leader>vp :VimuxPromptCommand<CR>
+map <Leader>vl :VimuxRunLastCommand<CR>
+map <Leader>vi :VimuxInspectRunner<CR>
+map <Leader>vq :VimuxCloseRunner<CR>
+
 " JSHint
 nnoremap <C-j> :JSHint<CR>
 
@@ -214,7 +229,7 @@ nmap <leader>ae :AcpEnable<CR>
 nmap <leader>ad :AcpDisable<CR>
 
 " shortcut to edit vimrc
-nmap <leader>v :tabe $MYVIMRC<CR>
+" nmap <leader>v :tabe $MYVIMRC<CR>
 nmap <F7> :tabprevious<CR>
 nmap <F8> :tabnext<CR>
 map <C-h> :tabprevious<CR>
