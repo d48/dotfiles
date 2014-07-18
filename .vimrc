@@ -41,7 +41,10 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'rking/ag.vim'
 Bundle 'mattr555/vim-instacode'
 Bundle 'maxbrunsfeld/vim-yankstack'
+" multi-row edit
 Bundle 'terryma/vim-multiple-cursors'
+" opens file in browser"
+Bundle 'nelstrom/vim-markdown-preview'
 
 " Snipmate and dependencies
 Bundle "MarcWeber/vim-addon-mw-utils"
