@@ -44,7 +44,7 @@ Bundle 'maxbrunsfeld/vim-yankstack'
 " multi-row edit
 Bundle 'terryma/vim-multiple-cursors'
 " opens file in browser"
-Bundle 'nelstrom/vim-markdown-preview'
+Bundle 'd48/vim-markdown-preview'
 
 " Snipmate and dependencies
 Bundle "MarcWeber/vim-addon-mw-utils"
@@ -102,6 +102,7 @@ if &t_Co > 2 || has("gui_running")
 	set background=light
 	" colorscheme molokai 
 	colorscheme solarized 
+	" colorscheme summerfruit256
 	" colorscheme blackboard
 	" colorscheme ratazzi 
 	" colorscheme tir_black 
