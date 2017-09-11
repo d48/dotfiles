@@ -74,6 +74,7 @@ export MYVIMRC=~/.vimrc
 # export LESS_TERMCAP_so=$'\E[38;5;246m'    # begin standout-mode - info box
 # export LESS_TERMCAP_ue=$'\E[0m'           # end underline
 # export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
+export GUGGY_API_KEY=o1WJa3pHD4YAE2c
  
 alias man='man -P less'
 
@@ -85,3 +86,5 @@ set -o vi
 # bind '"\e[B": history-search-forward'
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

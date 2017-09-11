@@ -3,8 +3,9 @@ filetype off
 
 
 set rtp+=~/.vim/bundle/vundle
+set rtp+=~/.fzf
 call vundle#rc()
-call pathogen#infect()
+" execute pathogen#infect()
 
 filetype plugin indent on
 
@@ -24,39 +25,36 @@ Bundle 'cschlueter/vim-clouds'
 Bundle 'tsaleh/vim-align'
 Bundle 'vim-scripts/Auto-Pairs'
 Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'mattn/zencoding-vim'
-Bundle 'benmills/vimux'
 Bundle 'nelstrom/vim-markdown-folding'
 Bundle 'vim-scripts/JavaScript-syntax'
-Bundle 'd48/WriteJSDocComment.vim'
+Bundle 'd28/WriteJSDocComment.vim'
 Bundle 'docunext/closetag.vim.git'
 Bundle 'majutsushi/tagbar.git'
 "utilities
 Bundle 'rking/ag.vim'
+Bundle 'junegunn/fzf.vim'
 " for previwing md files in browser
 Bundle "greyblake/vim-preview"
 Bundle 'milkbikis/powerline-bash'
 Bundle 'tpope/vim-liquid'
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'rking/ag.vim'
 Bundle 'mattr555/vim-instacode'
 Bundle 'maxbrunsfeld/vim-yankstack'
 " multi-row edit
 Bundle 'terryma/vim-multiple-cursors'
 " opens file in browser"
-Bundle 'd48/vim-markdown-preview'
+Bundle 'd28/vim-markdown-preview'
 
 " Snipmate and dependencies
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "garbas/vim-snipmate"
 Bundle 'ap/vim-css-color'
-Bundle 'git://github.com/d48/snipmate-snippets.git'
+Bundle 'git://github.com/d28/snipmate-snippets.git'
 Bundle 'claco/jasmine.vim'
 		
 
 " syntax highlighting
-Bundle "vim-pandoc/vim-pandoc"
 Bundle 'vim-scripts/jade.vim'
 
 " colorschemes
@@ -114,9 +112,9 @@ endif
 
 
 " tab hi lights. Rossi color chartreuse for bg
-" hi TabLineSel ctermbg=154 ctermfg=240	
+" hi TabLineSel ctermbg=152 ctermfg=220	
 
-set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
+set tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
 set clipboard=unnamed	" Copy buffer to system clipboard
 set mouse=r			
 set mousefocus			" Follow mouse focus
@@ -148,16 +146,16 @@ au BufRead,BufNewFile *.aspx set filetype=html
 au BufRead,BufNewFile *.zsh-theme set filetype=conf
 au BufRead,BufNewFile *.php.dist set filetype=php
 au BufRead,BufNewFile *.md AcpDisable
-au Filetype javascript setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
-au Filetype css setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
-au Filetype markdown setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
-au Filetype coffee setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
-au Filetype json setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
-au Filetype jade setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
-au Filetype html setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
-au Filetype phtml setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
-au Filetype php setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
-au Filetype ruby setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab 
+au Filetype javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
+au Filetype css setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
+au Filetype markdown setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
+au Filetype coffee setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
+au Filetype json setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
+au Filetype jade setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
+au Filetype html setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
+au Filetype phtml setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
+au Filetype php setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
+au Filetype ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab 
 au FileType html,cshtml let b:closetag_html_style=1
 au FileType html,cshtml source ~/.vim/bundle/closetag.vim/plugin/closetag.vim
 
@@ -183,7 +181,7 @@ au BufNewFile,BufRead * setlocal formatoptions+=or " show pwd in vim
 " ==================================================================
 nnoremap <Space> za
 " pandoc settings, markdown
-let g:pandoc_no_folding = 1
+" let g:pandoc_no_folding = 1
 
 " Omni/auto completion / neocomplcache
 " ==================================================================
@@ -284,6 +282,7 @@ let g:Powerline_symbols='fancy' " disable netrw plugin
 " GUI
 " ==================================================================
 set guioptions-=T               " Toggle off toolbar
+" set guifont=Mensch\ for\ Powerline:h13
 set guifont=Mensch\ for\ Powerline:h13
 set linespace=2
 
@@ -343,6 +342,8 @@ function! NumberToggle()
 		set ignorecase
 	endif
 endfunc
+
+nnoremap <Leader>d Go<ESC>"=strftime("%Y-%m-%d %H:%M:%S  ")<CR>PA
 
 " force setting line numbers
 set nonumber
